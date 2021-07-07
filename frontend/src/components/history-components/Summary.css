@@ -1,0 +1,36 @@
+.summary {
+    display: flex;
+    align-items: center;
+}
+
+.wr-circle {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.wr-circle > svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.wr-circle > svg > circle {
+    stroke: var(--red);
+    stroke-width: 10px;
+    fill: transparent;
+    stroke-dasharray: 340px;
+}
+.wr-circle > svg > circle:first-of-type {
+    stroke: var(--green);
+    stroke-dasharray: 0px;
+}
+
+.prefered-lanes > div {
+    display: flex;
+    align-items: center;
+}
+.prefered-lanes > div > p {
+    margin: 5px;
+}
