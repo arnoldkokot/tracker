@@ -18,7 +18,6 @@ function Match() {
       <div>
         2.67:1
       </div>
-      
     </li>
   );
 }
