@@ -1,6 +1,8 @@
 import 'dotenv/config.js';
 import https from 'https';
 
+// This function always returns json object, if its rejected there will be a single key - "status"
+// such key won't exist if promise is resolved sucessfully.
 export default function request(path) {
   return new Promise((resolve, reject) => {
 
