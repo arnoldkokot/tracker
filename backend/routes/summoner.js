@@ -7,10 +7,16 @@ router.get('/:summonerName', async (req, res) => {
   try {
     const encodedName = encodeURIComponent(req.params.summonerName);
     const { id, name } = await request(`/lol/summoner/v4/summoners/by-name/${encodedName}`);
-    const rankedEntries = await request(`/lol/league/v4/entries/by-summoner/${id}`);
+
+    const [rankedEntries, mastery] = await Promise.all([
+      request(`/lol/league/v4/entries/by-summoner/${id}`),
+      request(`/lol/champion-mastery/v4/champion-masteries/by-summoner/${id}`)
+    ]);
+
     res.send({
-      name: name,
-      rankedEntries: rankedEntries
+      name,
+      rankedEntries,
+      mastery: mastery.slice(0, 3)
     });
   } catch(e) {
     console.error(e);
