@@ -1,11 +1,12 @@
 import './Mastery.css';
 
-function Mastery() {
+function Mastery(props) {
+  const { champion, championPoints, championLevel } = props.mastery;
   return (
     <div className="mastery">
-      <img className="legend" src={`/assets/champion/Quinn.png`} alt="Quinn avatar"/>
-      <img className="emblem" src={`/assets/mastery/6.png`} alt="6th emblem"/>
-      <p>42314 pts</p>
+      <img className="legend" src={`/assets/champion/${champion}.png`} alt={`${champion} avatar`}/>
+      <img className="emblem" src={`/assets/mastery/${championLevel}.png`} alt={`${championLevel}th emblem`}/>
+      <p>{ championPoints } pts</p>
     </div>
   );
 }

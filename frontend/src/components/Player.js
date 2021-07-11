@@ -7,13 +7,16 @@ import Mastery from './Mastery';
 function Player(props) {
 
   const [entries, setEntries] = useState(null);
+  const [masteries, setMasteries] = useState(null);
 
   useEffect(() => {
     setEntries(null);
+    setMasteries(null);
     fetch(`/api/summoner/${props.name}`, {method: "GET"})
       .then(res => res.json())
       .then(response => {
         setEntries(response.rankedEntries);
+        setMasteries(response.mastery);
       })
       .catch(error => console.log(error));
   }, [props.name]);
@@ -29,9 +32,10 @@ function Player(props) {
         }
       </div>
       <div className="mastery-wrapper">
-        <Mastery/> {/* First mastery is styled wider and in the middle (best one) */}
-        <Mastery/>
-        <Mastery/> 
+        { 
+          masteries == null ? "Fetching..." : 
+          masteries.map(mastery => <Mastery mastery={ mastery } key={ mastery.champion }/>) 
+        }
       </div>
       {/* <History/> */}
     </>

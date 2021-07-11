@@ -1,4 +1,5 @@
 import express from "express";
+import getChampionById from "../src/getChampionById.js";
 import request from "../src/request.js";
 
 export const router = express.Router();
@@ -12,6 +13,10 @@ router.get('/:summonerName', async (req, res) => {
       request(`/lol/league/v4/entries/by-summoner/${id}`),
       request(`/lol/champion-mastery/v4/champion-masteries/by-summoner/${id}`)
     ]);
+
+    mastery.forEach(legend => {
+      legend.champion = getChampionById(legend.championId);
+    });
 
     res.send({
       name,
