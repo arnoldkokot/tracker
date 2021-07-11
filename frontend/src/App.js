@@ -6,7 +6,7 @@ function App() {
 
   const [selected, setSelected] = useState(null);
 
-  const names = ["Shillien Saint", "James Delos", "Shibumi", "Wicked Game"];
+  const names = ["James Delos", "Shibumi", "Wicked Game"];
   const namesComponents = names.map((name) =>
     <li key={name} onClick={() => setSelected(name)}>{name}</li>
   );

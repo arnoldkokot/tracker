@@ -1,14 +1,15 @@
 import './Tier.css';
 
-function Tier() {
+function Tier(props) {
+  const { queueType, tier, rank, leaguePoints, wins, losses } = props.entry;
   return (
     <div className="tier">
-      <img src="PLATINUM.png" alt="Platinum emblem"/>
+      <img src={`assets/ranked-emblems/${tier}.png`} alt={`${tier} emblem`}/>
       <div>
-        <p>Ranked Solo/Duo</p>
-        <h2>Platinium III</h2>
-        <p>75LP | 104W 102L</p>
-        <p>Win Ratio 50.5%</p>
+        <p>{ queueType }</p>
+        <h2>{ tier } { rank }</h2>
+        <p>{ leaguePoints }LP | { wins }W { losses }L</p>
+        <p>Win Ratio { (wins/(wins + losses)*100).toFixed(2) }%</p>
       </div>
     </div>
   );
