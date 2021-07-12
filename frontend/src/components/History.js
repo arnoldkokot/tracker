@@ -7,10 +7,7 @@ function History(props) {
     <>
       <Summary/>
       <ul className="history">
-          <Match/>
-          <Match/>
-          <Match/>
-          <Match/>
+        { props.matchIds.map(id => <Match id={id}/>) }
       </ul>
     </>
   );

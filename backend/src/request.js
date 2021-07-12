@@ -3,11 +3,13 @@ import https from 'https';
 
 // This function always returns json object, if its rejected there will be a single key - "status"
 // such key won't exist if promise is resolved sucessfully.
-export default function request(path) {
+export default function request(path, region = 'euw1') {
   return new Promise((resolve, reject) => {
 
+    console.log(`Outgoing request ${path}`);
+
     const options = {
-      hostname: 'euw1.api.riotgames.com',
+      hostname: `${region}.api.riotgames.com`,
       method: 'GET',
       path: path,
       headers: {

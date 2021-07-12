@@ -8,15 +8,18 @@ function Player(props) {
 
   const [entries, setEntries] = useState(null);
   const [masteries, setMasteries] = useState(null);
+  const [matchIds, setMatchIds] = useState(null);
 
   useEffect(() => {
     setEntries(null);
     setMasteries(null);
+    setMatchIds(null);
     fetch(`/api/summoner/${props.name}`, {method: "GET"})
       .then(res => res.json())
       .then(response => {
         setEntries(response.rankedEntries);
         setMasteries(response.mastery);
+        setMatchIds(response.matches);
       })
       .catch(error => console.log(error));
   }, [props.name]);
@@ -37,7 +40,7 @@ function Player(props) {
           masteries.map(mastery => <Mastery mastery={ mastery } key={ mastery.champion }/>) 
         }
       </div>
-      {/* <History/> */}
+        { matchIds == null ? "Fetching..." : <History matchIds={matchIds}/> }
     </>
   );
 }
