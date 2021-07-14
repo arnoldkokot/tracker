@@ -1,5 +1,5 @@
 .match {
-    height: 130px;
+    height: 500px;
     display: flex;
     align-items: center;
     width: 100%;
@@ -8,7 +8,6 @@
     width: 15px;
     height: 80%;
     background-color: var(--red);
-    
 }
 .main-legend {
     position: relative;

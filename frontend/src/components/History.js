@@ -1,13 +1,15 @@
-import './History.css';
-import Summary from './history-components/Summary';
-import Match from './history-components/Match';
+import "./History.css";
+// import Summary from "./history-components/Summary";
+import Match from "./history-components/Match";
 
 function History(props) {
   return (
     <>
-      <Summary/>
+      {/* <Summary /> */}
       <ul className="history">
-        { props.matchIds.map(id => <Match id={id}/>) }
+        {props.matchIds.map((id) => (
+          <Match id={id} name={props.name} />
+        ))}
       </ul>
     </>
   );
