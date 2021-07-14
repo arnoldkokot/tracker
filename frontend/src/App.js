@@ -15,14 +15,25 @@ function App() {
   return (
     <>
       <header>
-        <ul className="header-names">
-          <span class="material-icons">help_outline</span>
-          {namesComponents}
-          <span class="material-icons">search</span>
-        </ul>
+        <div className="container">
+          <span className="material-icons">help_outline</span>
+          <ul className="header-names">{namesComponents}</ul>
+          <form className="search-box">
+            <button type="submit">
+              <span className="material-icons">search</span>
+            </button>
+            <input type="text" placeholder="Search summoner name" required />
+          </form>
+        </div>
       </header>
       <main>
-        {selected == null ? <h1>Select player</h1> : <Player name={selected} />}
+        <div className="container">
+          {selected == null ? (
+            <h1>Select player</h1>
+          ) : (
+            <Player name={selected} />
+          )}
+        </div>
       </main>
     </>
   );

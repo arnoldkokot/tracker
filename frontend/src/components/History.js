@@ -8,7 +8,7 @@ function History(props) {
       {/* <Summary /> */}
       <ul className="history">
         {props.matchIds.map((id) => (
-          <Match id={id} name={props.name} />
+          <Match id={id} name={props.name} key={id} />
         ))}
       </ul>
     </>
