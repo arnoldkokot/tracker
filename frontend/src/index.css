@@ -4,6 +4,11 @@
     url(./font/CircularStd-Book.woff) format('woff'),
     url(./font/CircularStd-Book.ttf) format('truetype');
 }
+:root {
+  --red: #e56653;
+  --green: #60aca0;
+  --border: #e6e6e6;
+}
 * {
   margin: 0;
   padding: 0;
@@ -30,6 +35,11 @@ button, input[type="submit"], input[type="reset"] {
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
+}
+
+img {
+  width: 100%;
+  height: auto;
 }
 
 .material-icons.md-18 { font-size: 18px; }

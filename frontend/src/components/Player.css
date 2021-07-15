@@ -4,3 +4,7 @@
 .mastery-wrapper {
     display: flex;
 }
+.player-stats {
+    display: flex;
+    margin-bottom: 50px;
+}

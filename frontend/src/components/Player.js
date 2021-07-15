@@ -10,35 +10,43 @@ function Player(props) {
   const [matchIds, setMatchIds] = useState(null);
 
   useEffect(() => {
+    let isMounted = true;
     setEntries(null);
     setMasteries(null);
     setMatchIds(null);
     fetch(`/api/summoner/${props.name}`, { method: "GET" })
       .then((res) => res.json())
       .then((response) => {
-        setEntries(response.rankedEntries);
-        setMasteries(response.mastery);
-        setMatchIds(response.matches);
+        if (isMounted) {
+          setEntries(response.rankedEntries);
+          setMasteries(response.mastery);
+          setMatchIds(response.matches);
+        }
       })
       .catch((error) => console.log(error));
+    return () => {
+      isMounted = false;
+    };
   }, [props.name]);
 
   return (
     <>
       <h1>{props.name}</h1>
-      <div className="tier-wrapper">
-        {entries == null
-          ? "Fetching..."
-          : entries.map((entry) => (
-              <Tier entry={entry} key={entry.queueType} />
-            ))}
-      </div>
-      <div className="mastery-wrapper">
-        {masteries == null
-          ? "Fetching..."
-          : masteries.map((mastery) => (
-              <Mastery mastery={mastery} key={mastery.champion} />
-            ))}
+      <div className="player-stats">
+        <div className="tier-wrapper">
+          {entries == null
+            ? "Fetching..."
+            : entries.map((entry) => (
+                <Tier entry={entry} key={entry.queueType} />
+              ))}
+        </div>
+        <div className="mastery-wrapper">
+          {masteries == null
+            ? "Fetching..."
+            : masteries.map((mastery) => (
+                <Mastery mastery={mastery} key={mastery.champion} />
+              ))}
+        </div>
       </div>
       {matchIds == null ? (
         "Fetching..."

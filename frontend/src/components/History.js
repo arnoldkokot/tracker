@@ -1,11 +1,9 @@
 import "./History.css";
-// import Summary from "./history-components/Summary";
-import Match from "./history-components/Match";
+import Match from "./Match";
 
 function History(props) {
   return (
     <>
-      {/* <Summary /> */}
       <ul className="history">
         {props.matchIds.map((id) => (
           <Match id={id} name={props.name} key={id} />
