@@ -1,13 +1,22 @@
 import express from "express";
 import request from "../src/request.js";
+import database from "../src/database.js";
 
 export const router = express.Router();
 
-router.get('/:matchId', async (req, res) => {
+router.get("/:matchId", async (req, res) => {
   try {
-    const matchData = await request(`/lol/match/v5/matches/${req.params.matchId}`, 'europe');
-    res.send(matchData);
-  } catch(e) {
+    let match = await database.getMatch(req.params.matchId);
+    if (match == undefined) {
+      match = await request(
+        `/lol/match/v5/matches/${req.params.matchId}`,
+        "europe"
+      );
+      database.saveMatch(match);
+      console.log("Match saved to database");
+    } else console.log("Match found in database");
+    res.send(match);
+  } catch (e) {
     console.log(e);
     res.send(e);
   }

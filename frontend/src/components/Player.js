@@ -1,60 +1,79 @@
 import { useState, useEffect } from "react";
 import "./Player.css";
-import History from "./History";
+import Loading from "./Loading";
 import Tier from "./Tier";
-import Mastery from "./Mastery";
+import Match from "./Match";
 
 function Player(props) {
-  const [entries, setEntries] = useState(null);
-  const [masteries, setMasteries] = useState(null);
-  const [matchIds, setMatchIds] = useState(null);
+  const [playerData, setPlayerData] = useState({
+    loading: false,
+    mastery: null,
+    matches: null,
+  });
 
   useEffect(() => {
     let isMounted = true;
-    setEntries(null);
-    setMasteries(null);
-    setMatchIds(null);
-    fetch(`/api/summoner/${props.name}`, { method: "GET" })
+    setPlayerData({ loading: true });
+
+    fetch(`/api/summoner/${props.name}`)
       .then((res) => res.json())
-      .then((response) => {
+      .then(({ ranked, matches }) => {
         if (isMounted) {
-          setEntries(response.rankedEntries);
-          setMasteries(response.mastery);
-          setMatchIds(response.matches);
+          setPlayerData({
+            loading: false,
+            ranked,
+            matches,
+          });
         }
       })
       .catch((error) => console.log(error));
+
     return () => {
       isMounted = false;
     };
   }, [props.name]);
 
+  const { loading, ranked, matches } = playerData;
+
   return (
     <>
       <h1>{props.name}</h1>
-      <div className="player-stats">
-        <div className="tier-wrapper">
-          {entries == null
-            ? "Fetching..."
-            : entries.map((entry) => (
-                <Tier entry={entry} key={entry.queueType} />
-              ))}
-        </div>
-        <div className="mastery-wrapper">
-          {masteries == null
-            ? "Fetching..."
-            : masteries.map((mastery) => (
-                <Mastery mastery={mastery} key={mastery.champion} />
-              ))}
-        </div>
-      </div>
-      {matchIds == null ? (
-        "Fetching..."
+      {loading ? (
+        <Loading />
       ) : (
-        <History matchIds={matchIds} name={props.name} />
+        <>
+          <div className="stats">
+            {ranked && ranked.map((entry) => <Tier {...entry} />)}
+          </div>
+          <div className="history">
+            {matches && matches.map((matchId) => <Match id={matchId} />)}
+          </div>
+        </>
       )}
     </>
   );
 }
 
 export default Player;
+
+/* <>
+  <h1>{props.name}</h1>
+  <div className="player-stats">
+    <div className="tier-wrapper">
+      {ranked == null
+        ? "Fetching..."
+        : ranked.map((entry) => (
+            <Tier entry={entry} key={entry.queueType} />
+          ))}
+    </div>
+  </div>
+  <div className="mastery-wrapper">
+    {masteries == null ? "Fetching...": masteries.map((mastery) => (
+      <Mastery mastery={mastery} key={mastery.champion} />))}
+  </div>
+  {matches == null ? (
+    "Fetching..."
+  ) : (
+    <History matchIds={matchIds} name={props.name} />
+  )}
+</> */

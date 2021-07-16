@@ -1,0 +1,11 @@
+.tier {
+    display: flex;
+    align-items: center;
+    margin-right: 70px;
+}
+.tier > img {
+    width: 150px;
+}
+.tier > div {
+    margin-left: 15px;
+}

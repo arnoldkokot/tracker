@@ -1,10 +1,4 @@
-.tier-wrapper {
+.stats {
     display: flex;
-}
-.mastery-wrapper {
-    display: flex;
-}
-.player-stats {
-    display: flex;
-    margin-bottom: 50px;
+    justify-content: center;
 }
