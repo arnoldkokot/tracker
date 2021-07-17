@@ -1,6 +1,8 @@
 # League tracker
 
-League tracker provides insight to League of Legends players about thier game performance, match history, and ranked ladder. 
+League tracker provides insight to League of Legends players about thier game performance, match history, and ranked ladder.
+
+Website will be avaliable at [tracker.deithy.me](https://tracker.deithy.me)
 
 # TODO
 - [x] Mobile version
