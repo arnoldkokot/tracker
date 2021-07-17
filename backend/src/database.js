@@ -19,7 +19,6 @@ class Mongo {
   }
 
   saveMatch(match) {
-    console.log(`Saving match ${match.info.matchId} to database`);
     this.collection.insertOne(match);
   }
 }

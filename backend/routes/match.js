@@ -13,8 +13,7 @@ router.get("/:matchId", async (req, res) => {
         "europe"
       );
       database.saveMatch(match);
-      console.log("Match saved to database");
-    } else console.log("Match found in database");
+    }
     res.send(match);
   } catch (e) {
     console.log(e);

@@ -46,7 +46,10 @@ function Player(props) {
             {ranked && ranked.map((entry) => <Tier {...entry} />)}
           </div>
           <div className="history">
-            {matches && matches.map((matchId) => <Match id={matchId} />)}
+            {matches &&
+              matches.map((matchId) => (
+                <Match key={matchId} id={matchId} mainPlayer={props.name} />
+              ))}
           </div>
         </>
       )}

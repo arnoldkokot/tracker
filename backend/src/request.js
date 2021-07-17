@@ -5,6 +5,7 @@ import https from "https";
 // such key won't exist if promise is resolved sucessfully.
 export default function request(path, region = "euw1") {
   return new Promise((resolve, reject) => {
+    console.log(`<-- ${path}`);
     const options = {
       hostname: `${region}.api.riotgames.com`,
       method: "GET",
