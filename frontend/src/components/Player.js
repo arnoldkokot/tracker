@@ -3,12 +3,14 @@ import "./Player.css";
 import Loading from "./Loading";
 import Tier from "./Tier";
 import Match from "./Match";
+import Mastery from "./Mastery";
 
 function Player(props) {
   const [playerData, setPlayerData] = useState({
     loading: false,
     mastery: null,
     matches: null,
+    ranked: null,
   });
 
   useEffect(() => {
@@ -17,12 +19,13 @@ function Player(props) {
 
     fetch(`/api/summoner/${props.name}`)
       .then((res) => res.json())
-      .then(({ ranked, matches }) => {
+      .then(({ ranked, matches, mastery }) => {
         if (isMounted) {
           setPlayerData({
             loading: false,
             ranked,
             matches,
+            mastery,
           });
         }
       })
@@ -33,7 +36,7 @@ function Player(props) {
     };
   }, [props.name]);
 
-  const { loading, ranked, matches } = playerData;
+  const { loading, ranked, mastery, matches } = playerData;
 
   return (
     <>
@@ -43,7 +46,9 @@ function Player(props) {
       ) : (
         <>
           <div className="stats">
-            {ranked && ranked.map((entry) => <Tier {...entry} />)}
+            {ranked &&
+              ranked.map((entry) => <Tier key={entry.queueId} {...entry} />)}
+            {mastery ? <Mastery mastery={mastery} /> : ""}
           </div>
           <div className="history">
             {matches &&
