@@ -3,8 +3,8 @@ export default function Mastery(props) {
   const mastery = props.mastery;
   return (
     <div className="top-champ">
-      {mastery.map(({ championLevel, championName, championPoints }) => (
-        <div>
+      {mastery.map(({ championLevel, championName, championPoints }, index) => (
+        <div key={index}>
           <img
             src={`assets/champion/${championName}.png`}
             alt={`${championName}`}

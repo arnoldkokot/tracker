@@ -13,13 +13,13 @@ export default function Match(props) {
     setMatch(null);
 
     fetch(`/api/match/${props.id}`)
-      .then((res) => res.json())
+      .then(res => res.json())
       .then(({ info }) => {
         if (isMounted) {
           setMatch(info);
         }
       })
-      .catch((error) => console.log(error));
+      .catch(error => console.log(error));
 
     return () => {
       isMounted = false;
@@ -28,17 +28,17 @@ export default function Match(props) {
 
   const player =
     match &&
-    match.participants.find((participant) => {
+    match.participants.find(participant => {
       return participant.summonerName === props.mainPlayer;
     });
 
   if (!match || !player) return <Loading />;
 
   return (
-    <div className="match">
+    <div key={props.id} className="match">
       <>
         <div className={player.win ? "result win" : "result"}></div>
-        <p class="match-info">
+        <p className="match-info">
           {getQueueById(match.queueId)}
           <br />
           {formatElapsed(match.gameStartTimestamp)}
@@ -95,15 +95,17 @@ export default function Match(props) {
           />
         </div>
         <ul className="participants">
-          {match.participants.map(({ summonerName, uuid, championName }) => (
-            <li key={uuid}>
-              <img
-                src={`assets/champion/${championName}.png`}
-                alt={`${championName}`}
-              />
-              {summonerName}
-            </li>
-          ))}
+          {match.participants.map(
+            ({ summonerName, uuid, championName }, index) => (
+              <li key={index}>
+                <img
+                  src={`assets/champion/${championName}.png`}
+                  alt={`${championName}`}
+                />
+                {summonerName}
+              </li>
+            )
+          )}
         </ul>
         <div className="match-duration">
           {(match.gameDuration / 60000).toFixed()}min{" "}

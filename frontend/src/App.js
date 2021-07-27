@@ -1,14 +1,18 @@
 import "./App.css";
 import { useState } from "react";
 import Player from "./components/Player";
+import { useDispatch, useSelector } from "react-redux";
+import { change } from "./redux/summonerName";
 
 function App() {
-  const [selected, setSelected] = useState(null);
+  const { summonerName } = useSelector(state => state.summonerName);
+  const dispatch = useDispatch();
+
   const [input, setInput] = useState("");
 
   const names = ["James Delos", "Wicked Game", "Arlo Black", "Sleepy Blade"];
-  const namesComponents = names.map((name) => (
-    <li key={name} onClick={() => setSelected(name)}>
+  const namesComponents = names.map(name => (
+    <li key={name} onClick={() => dispatch(change(name))}>
       {name}
     </li>
   ));
@@ -18,7 +22,7 @@ function App() {
   }
 
   function handleSubmit(event) {
-    setSelected(input);
+    dispatch(change(input));
     event.preventDefault();
   }
 
@@ -44,10 +48,10 @@ function App() {
       </header>
       <main>
         <div className="container">
-          {selected == null ? (
+          {summonerName == null ? (
             <h1>Select player</h1>
           ) : (
-            <Player name={selected} />
+            <Player name={summonerName} />
           )}
         </div>
       </main>

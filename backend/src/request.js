@@ -16,9 +16,9 @@ export default function request(path, region = "euw1") {
     };
 
     https
-      .request(options, (response) => {
+      .request(options, response => {
         let str = "";
-        response.on("data", (data) => (str += data));
+        response.on("data", data => (str += data));
         response.on("end", () => {
           const json = JSON.parse(str);
           if (response.statusCode == "200") resolve(json);
