@@ -19,13 +19,14 @@ function Player(props) {
 
     fetch(`/api/summoner/${props.name}`)
       .then(res => res.json())
-      .then(({ ranked, matches, mastery }) => {
+      .then(({ ranked, matches, mastery, status }) => {
         if (isMounted) {
           setPlayerData({
             loading: false,
             ranked,
             matches,
             mastery,
+            status,
           });
         }
       })
@@ -35,6 +36,8 @@ function Player(props) {
       isMounted = false;
     };
   }, [props.name]);
+
+  if (playerData.status !== undefined) return <div>{playerData.status}</div>;
 
   const { loading, ranked, mastery, matches } = playerData;
 
@@ -63,25 +66,3 @@ function Player(props) {
 }
 
 export default Player;
-
-/* <>
-  <h1>{props.name}</h1>
-  <div className="player-stats">
-    <div className="tier-wrapper">
-      {ranked == null
-        ? "Fetching..."
-        : ranked.map((entry) => (
-            <Tier entry={entry} key={entry.queueType} />
-          ))}
-    </div>
-  </div>
-  <div className="mastery-wrapper">
-    {masteries == null ? "Fetching...": masteries.map((mastery) => (
-      <Mastery mastery={mastery} key={mastery.champion} />))}
-  </div>
-  {matches == null ? (
-    "Fetching..."
-  ) : (
-    <History matchIds={matchIds} name={props.name} />
-  )}
-</> */

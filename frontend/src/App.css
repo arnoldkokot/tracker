@@ -25,13 +25,15 @@ h1 {
     font-size: 4rem;
     padding: 40px 0px;
 }
-.search-box {
+.landing-form {
+    height: 50vh;
     display: flex;
-    margin-left: auto;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
-.search-box > button {
-    height: 24px;
-    margin-right: 5px;
+.landing-form > h1 {
+    text-align: center;
 }
 /* Tablet */
 @media (min-width: 768px) { 

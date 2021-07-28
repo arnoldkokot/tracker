@@ -4,9 +4,13 @@ import Loading from "./Loading";
 import { formatElapsed } from "../utils/formatElapsed";
 import { getQueueById } from "../utils/getQueueById";
 import { getSpellById } from "../utils/getSpellById";
+import { useDispatch } from "react-redux";
+import { change } from "../redux/summonerName";
 
 export default function Match(props) {
   const [match, setMatch] = useState(null);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     let isMounted = true;
@@ -32,7 +36,7 @@ export default function Match(props) {
       return participant.summonerName === props.mainPlayer;
     });
 
-  if (!match || !player) return <Loading />;
+  if (!match || !player) return <Loading className="min-height" />;
 
   return (
     <div key={props.id} className="match">
@@ -97,7 +101,7 @@ export default function Match(props) {
         <ul className="participants">
           {match.participants.map(
             ({ summonerName, uuid, championName }, index) => (
-              <li key={index}>
+              <li key={index} onClick={() => dispatch(change(summonerName))}>
                 <img
                   src={`assets/champion/${championName}.png`}
                   alt={`${championName}`}

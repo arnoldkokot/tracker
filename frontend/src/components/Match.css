@@ -5,7 +5,6 @@
   border-bottom: 1px solid #e6e6e6;
   grid-template-columns: 15px;
 }
-
 .result {
   grid-area: 1 / 1 / 5 / 2;
   background-color: var(--red);
@@ -91,8 +90,12 @@
   height: 32px;
   margin-right: 5px;
 }
-
-
+.participants > li {
+  cursor: pointer;
+}
+.participants > li:hover {
+  background-color: #f0f8ff;
+}
 
 /* Tablet */
 @media (min-width: 768px) { 

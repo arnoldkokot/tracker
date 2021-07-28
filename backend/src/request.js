@@ -22,7 +22,10 @@ export default function request(path, region = "euw1") {
         response.on("end", () => {
           const json = JSON.parse(str);
           if (response.statusCode == "200") resolve(json);
-          else reject(json);
+          else {
+            console.log(JSON.stringify(response.headers));
+            reject(json);
+          }
         });
       })
       .end();
