@@ -49,7 +49,8 @@
 
 [![Preview image](preview.png)](https://tracker.deithy.me)
 
-League tracker provides insight to League of Legends players about thier game performance, match history, and ranked ladder.
+League tracker provides insight to League of Legends players about thier game performance, match
+history, and ranked ladder via Riot API.
 
 ### Features
 
