@@ -80,7 +80,8 @@ To get a local copy up and running follow steps below.
 ### Prerequisites
 
 Node and npm are required to install and run the project. Riot API key is essential to display
-valuable content.
+valuable content. MongoDB database is optional but recommended as it reduces Riot API requests by
+storing them locally.
 
 ### Installation
 
@@ -104,6 +105,19 @@ valuable content.
    PORT=5000
    DB_CONNECTION_STRING=*mongoDB connection string*
    ```
+5. Run backend
+   ```sh
+   npm run dev
+   ```
+6. Install frontend NPM packages
+   ```sh
+   cd frontend
+   npm install
+   ```
+7. Run project
+   ```sh
+   npm start
+   ```
 
 ## Usage
 
@@ -111,10 +125,10 @@ valuable content.
 
 All API request start with `/api/` and are guaranteed to return JSON data.
 
-- /api/summoner/:summonerName
+- `/api/summoner/:summonerName`
   Responds with combined stats about player, costs 3-4 requests as name gets cashed for 3h
 
-- /api/match/:matchId
+- `/api/match/:matchId`
   Responds with info and metadata about given match id, costs 0-1 riot requests
 
 ## License
@@ -129,8 +143,8 @@ Project Link: [https://github.com/deithy/tracker](https://github.com/deithy/trac
 
 ## Acknowledgements
 
+- [Express](https://expressjs.com/)
+- [MongoDB](https://www.mongodb.com/)
 - [Create react app](https://create-react-app.dev/)
 - [React](https://reactjs.org/)
-- [Normalize.css](https://shields.io)
-- [Primer](https://primer.style/)
 - [Redux toolkit](https://redux-toolkit.js.org/)
