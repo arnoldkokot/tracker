@@ -33,6 +33,12 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
+    <li>
+      <a href="#usage">Usage</a>
+      <ul>
+        <li><a href="#endpoints">Endpoints</a></li>
+      </ul>
+    </li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
@@ -101,7 +107,7 @@ valuable content.
 
 ## Usage
 
-# Backend endpoints
+### Endpoints
 
 All API request start with `/api/` and are guaranteed to return JSON data.
 
