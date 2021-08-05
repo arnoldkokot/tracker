@@ -37,7 +37,7 @@ function Player(props) {
     };
   }, [props.name]);
 
-  if (playerData.status !== undefined) return <div>{playerData.status}</div>;
+  if (!playerData.status) return <div>{JSON.stringify(playerData.status)}</div>;
 
   const { loading, ranked, mastery, matches } = playerData;
 

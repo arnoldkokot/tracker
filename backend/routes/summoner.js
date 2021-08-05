@@ -9,7 +9,7 @@ let knownNames = [];
 router.get("/:summonerName", async (req, res) => {
   try {
     //Check for cashed summoner ids, to try to skip identification request
-    let summonerData = knownNames.find((summoner) => {
+    let summonerData = knownNames.find(summoner => {
       return summoner.name === req.params.summonerName;
     });
 
@@ -34,7 +34,7 @@ router.get("/:summonerName", async (req, res) => {
       ),
     ]);
 
-    mastery.forEach((element) => {
+    mastery.forEach(element => {
       element.championName = championName(element.championId);
     });
 
@@ -45,7 +45,7 @@ router.get("/:summonerName", async (req, res) => {
     });
 
     //Cleanup old cashed names to prevent allocating too much memory
-    knownNames = knownNames.filter((cashedName) => {
+    knownNames = knownNames.filter(cashedName => {
       return Date.now() - cashedName.savedAt < 360000 * 3; // names expire in 3h
     });
   } catch (e) {
