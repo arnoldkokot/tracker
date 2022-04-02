@@ -1,12 +1,11 @@
 import React from "react";
-import { PageLayout, Box } from "@primer/react";
+import { PageLayout, Box, Heading } from "@primer/react";
 
 export default function Layout() {
   return (
     <PageLayout>
       <PageLayout.Header divider="line">
-        {/*bg="canvas.subtle"*/}
-        <Box height={64}>Header</Box>
+        <Heading>James Delos</Heading>
       </PageLayout.Header>
       <PageLayout.Content>
         <Box height={240}>Content</Box>
