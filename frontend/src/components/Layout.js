@@ -1,5 +1,5 @@
 import React from "react";
-import { PageLayout, Box, Heading } from "@primer/react";
+import { PageLayout, Box, Heading, ActionList } from "@primer/react";
 
 export default function Layout() {
   return (
@@ -11,7 +11,13 @@ export default function Layout() {
         <Box height={240}>Content</Box>
       </PageLayout.Content>
       <PageLayout.Pane divider="line">
-        <Box height={120}>Pane</Box>
+        <ActionList showDividers>
+          <ActionList.Group title="Recently played with">
+            <ActionList.Item>Deithy</ActionList.Item>
+            <ActionList.Item>Wicked Game</ActionList.Item>
+            <ActionList.Item>Shibumi</ActionList.Item>
+          </ActionList.Group>
+        </ActionList>
       </PageLayout.Pane>
       <PageLayout.Footer divider="line">
         <Box height={64}>Footer</Box>
