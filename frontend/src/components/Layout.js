@@ -1,5 +1,6 @@
 import React from "react";
 import { PageLayout, Box, Heading, ActionList } from "@primer/react";
+import Game from "./Game";
 
 export default function Layout() {
   return (
@@ -8,7 +9,10 @@ export default function Layout() {
         <Heading>James Delos</Heading>
       </PageLayout.Header>
       <PageLayout.Content>
-        <Box height={240}>Content</Box>
+        <Game />
+        <Game />
+        <Game />
+        <Game />
       </PageLayout.Content>
       <PageLayout.Pane divider="line">
         <ActionList showDividers>
