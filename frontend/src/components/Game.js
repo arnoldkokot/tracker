@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Avatar, ActionList } from "@primer/react";
+import { Box, Avatar, ActionList, Button } from "@primer/react";
 
 export default function Game() {
   return (
@@ -13,8 +13,13 @@ export default function Game() {
       alignItems="center"
     >
       <Box width={12} alignSelf="stretch" bg="danger.subtle" mr={3}></Box>
-      <Avatar src="https://avatars.githubusercontent.com/github" size="40" />
-      <Box flexGrow={1}>Match data</Box>
+
+      {/* <Avatar src="https://avatars.githubusercontent.com/github" size="40" /> */}
+
+      <Box flexGrow={1}>
+        <Button>Kliknij na mnie</Button>
+      </Box>
+
       <Box display="flex">
         <ActionList>
           <ActionList.Item>
@@ -48,6 +53,7 @@ export default function Game() {
             Player 5
           </ActionList.Item>
         </ActionList>
+
         <ActionList>
           <ActionList.Item>
             <ActionList.LeadingVisual>

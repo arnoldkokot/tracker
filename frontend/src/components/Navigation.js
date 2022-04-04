@@ -5,7 +5,7 @@ export default function Navigation() {
   return (
     <Header>
       <Header.Item>
-        <Header.Link href="#">Header text</Header.Link>
+        <Header.Link href="#">Header link</Header.Link>
       </Header.Item>
     </Header>
   );
