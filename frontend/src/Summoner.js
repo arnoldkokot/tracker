@@ -1,13 +1,15 @@
 import React from "react";
 import { PageLayout, Box, Heading, ActionList } from "@primer/react";
-import Game from "./Game";
-import { Link } from "react-router-dom";
+import Game from "./components/Game";
+import { Link, useParams } from "react-router-dom";
 
-export default function Layout() {
+export default function Summoner(props) {
+  const { summonerName } = useParams();
+
   return (
     <PageLayout>
       <PageLayout.Header divider="line">
-        <Heading>James Delos</Heading>
+        <Heading>{summonerName}</Heading>
       </PageLayout.Header>
       <PageLayout.Content>
         <Game />
