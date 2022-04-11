@@ -1,6 +1,7 @@
 import React from "react";
 import { PageLayout, Box, Heading, ActionList } from "@primer/react";
 import Game from "./Game";
+import { Link } from "react-router-dom";
 
 export default function Layout() {
   return (
@@ -17,9 +18,15 @@ export default function Layout() {
       <PageLayout.Pane divider="line">
         <ActionList showDividers>
           <ActionList.Group title="Recently played with">
-            <ActionList.Item>Deithy</ActionList.Item>
-            <ActionList.Item>Wicked Game</ActionList.Item>
-            <ActionList.Item>Shibumi</ActionList.Item>
+            <Link to="/Deithy">
+              <ActionList.Item>Deithy</ActionList.Item>
+            </Link>
+            <Link to="/Wicked Game">
+              <ActionList.Item>Wicked Game</ActionList.Item>
+            </Link>
+            <Link to="/Shibumi">
+              <ActionList.Item>Shibumi</ActionList.Item>
+            </Link>
           </ActionList.Group>
         </ActionList>
       </PageLayout.Pane>

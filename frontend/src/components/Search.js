@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { TextInput, Box, LabelGroup, Label } from "@primer/react";
 import { SearchIcon } from "@primer/octicons-react";
 
 export default function Search() {
+  const [input, setInput] = useState("");
+
   return (
     <Box
       height="80vh"
@@ -21,6 +23,8 @@ export default function Search() {
         autoComplete="off"
         autoFocus
         leadingVisual={SearchIcon}
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
       />
       <LabelGroup sx={{ marginTop: "7px" }}>
         <Label size="large">James Delos</Label>

@@ -16,9 +16,7 @@ export default function Game() {
 
       {/* <Avatar src="https://avatars.githubusercontent.com/github" size="40" /> */}
 
-      <Box flexGrow={1}>
-        <Button>Kliknij na mnie</Button>
-      </Box>
+      <Box flexGrow={1}>Game Data</Box>
 
       <Box display="flex">
         <ActionList>
