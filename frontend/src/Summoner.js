@@ -20,13 +20,13 @@ export default function Summoner(props) {
       <PageLayout.Pane divider="line">
         <ActionList showDividers>
           <ActionList.Group title="Recently played with">
-            <Link to="/Deithy">
+            <Link to="/summoner/Deithy">
               <ActionList.Item>Deithy</ActionList.Item>
             </Link>
-            <Link to="/Wicked Game">
+            <Link to="/summoner/Wicked Game">
               <ActionList.Item>Wicked Game</ActionList.Item>
             </Link>
-            <Link to="/Shibumi">
+            <Link to="/summoner/Shibumi">
               <ActionList.Item>Shibumi</ActionList.Item>
             </Link>
           </ActionList.Group>
