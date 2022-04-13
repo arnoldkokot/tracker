@@ -1,6 +1,6 @@
 import React from "react";
 import { PageLayout, Box, Heading, ActionList } from "@primer/react";
-import Game from "./components/Game";
+import Game from "./Game";
 import { Link, useParams } from "react-router-dom";
 
 export default function Summoner(props) {

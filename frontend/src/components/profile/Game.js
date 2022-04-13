@@ -1,5 +1,6 @@
 import React from "react";
-import { Box, Avatar, ActionList, Button } from "@primer/react";
+import { Box, Avatar, ActionList } from "@primer/react";
+import { Link } from "react-router-dom";
 
 export default function Game() {
   return (
@@ -14,13 +15,11 @@ export default function Game() {
     >
       <Box width={12} alignSelf="stretch" bg="danger.subtle" mr={3}></Box>
 
-      {/* <Avatar src="https://avatars.githubusercontent.com/github" size="40" /> */}
-
       <Box flexGrow={1}>Game Data</Box>
 
       <Box display="flex">
         <ActionList>
-          <ActionList.Item>
+          <ActionList.Item as={Link} to="/summoner/Player 1">
             <ActionList.LeadingVisual>
               <Avatar src="https://github.com/mona.png" />
             </ActionList.LeadingVisual>

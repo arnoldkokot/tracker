@@ -2,7 +2,7 @@ import { Box, Heading, Text } from "@primer/react";
 import React from "react";
 import { useParams } from "react-router-dom";
 
-export default function Missing() {
+export default () => {
   const { url } = useParams();
   return (
     <Box
@@ -16,4 +16,4 @@ export default function Missing() {
       <Text>/{url}</Text>
     </Box>
   );
-}
+};

@@ -4,6 +4,8 @@ import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider, BaseStyles } from "@primer/react";
 import App from "./App";
 
+import "./index.css";
+
 createRoot(document.getElementById("root")).render(
   <ThemeProvider colorMode="day">
     <BaseStyles>

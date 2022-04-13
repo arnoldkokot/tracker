@@ -3,12 +3,12 @@ import { Box } from "@primer/react";
 import { Routes, Route } from "react-router-dom";
 
 import Navigation from "./components/Navigation";
-import Summoner from "./Summoner";
-import Search from "./Search";
-import Missing from "./Missing";
-import About from "./About";
+import Summoner from "./components/profile/Summoner";
+import Search from "./components/Search";
+import Missing from "./components/Missing";
+import About from "./components/About";
 
-export default function App() {
+export default () => {
   return (
     <Box bg="canvas.default" height="100vh">
       <Navigation />
@@ -20,4 +20,4 @@ export default function App() {
       </Routes>
     </Box>
   );
-}
+};
