@@ -1,9 +1,10 @@
 import React from "react";
-import { PageLayout, Box, Heading, ActionList } from "@primer/react";
+import { PageLayout, Box, Heading } from "@primer/react";
 import Game from "./Game";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import Pane from "./Pane";
 
-export default function Summoner(props) {
+export default () => {
   const { summonerName } = useParams();
 
   return (
@@ -17,24 +18,12 @@ export default function Summoner(props) {
         <Game />
         <Game />
       </PageLayout.Content>
-      <PageLayout.Pane divider="line">
-        <ActionList showDividers>
-          <ActionList.Group title="Recently played with">
-            <Link to="/summoner/Deithy">
-              <ActionList.Item>Deithy</ActionList.Item>
-            </Link>
-            <Link to="/summoner/Wicked Game">
-              <ActionList.Item>Wicked Game</ActionList.Item>
-            </Link>
-            <Link to="/summoner/Shibumi">
-              <ActionList.Item>Shibumi</ActionList.Item>
-            </Link>
-          </ActionList.Group>
-        </ActionList>
+      <PageLayout.Pane>
+        <Pane />
       </PageLayout.Pane>
       <PageLayout.Footer divider="line">
         <Box height={64}>Footer</Box>
       </PageLayout.Footer>
     </PageLayout>
   );
-}
+};

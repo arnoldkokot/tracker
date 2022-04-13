@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Avatar, ActionList } from "@primer/react";
 import { Link } from "react-router-dom";
 
-export default function Game() {
+export default () => {
   return (
     <Box
       borderColor="border.default"
@@ -86,4 +86,4 @@ export default function Game() {
       </Box>
     </Box>
   );
-}
+};
