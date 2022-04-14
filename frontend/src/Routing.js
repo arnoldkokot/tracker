@@ -12,8 +12,8 @@ export default () => {
     <Box bg="canvas.default" height="100vh">
       <Header />
       <Routes>
-        <Route path="summoner/:summonerName" element={<Summoner />} />
         <Route path="" element={<Search />} />
+        <Route path="summoner/:summonerName" element={<Summoner />} />
         <Route path="about" element={<About />} />
         <Route
           path="*"
