@@ -21,7 +21,7 @@ export default () => {
         <ActionList>
           <ActionList.Item as={Link} to="/summoner/Player 1">
             <ActionList.LeadingVisual>
-              <Avatar src="https://github.com/mona.png" />
+              <Avatar src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Aatrox.png" />
             </ActionList.LeadingVisual>
             Player 1
           </ActionList.Item>

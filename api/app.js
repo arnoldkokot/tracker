@@ -13,7 +13,8 @@ app.use(cors());
 // app.use("/api/match", matchRouter);
 
 function boot() {
-  app.listen(process.env.PORT, console.log(`App live at ${process.env.PORT}`));
+  const port = process.env.PORT;
+  app.listen(port, console.log(`App live at ${port}`));
   // database.connect();
 }
 boot();
