@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Avatar, ActionList } from "@primer/react";
+import { Box, Avatar, ActionList, Text } from "@primer/react";
 import { Link } from "react-router-dom";
 
 export default () => {
@@ -11,11 +11,58 @@ export default () => {
       borderRadius={2}
       mb={2}
       display="flex"
-      alignItems="center"
+      alignItems="stretch"
     >
-      <Box width={12} alignSelf="stretch" bg="danger.subtle" mr={3}></Box>
+      <Box width={12} bg="danger.subtle" mr={3} />
 
-      <Box flexGrow={1}>Game Data</Box>
+      <Box flexGrow={1}>
+        <Box display="flex" alignItems="center">
+          <Avatar
+            size={40}
+            src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Aatrox.png"
+          />
+          <Text as="p" fontWeight="bold" ml={2}>
+            10 / 1 / 0
+          </Text>
+        </Box>
+        <Box display="flex" sx={{ gap: "2px" }}>
+          <Avatar
+            square
+            src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/item/1001.png"
+            size={30}
+          />
+          <Avatar
+            square
+            src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/item/1001.png"
+            size={30}
+          />
+          <Avatar
+            square
+            src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/item/1001.png"
+            size={30}
+          />
+          <Avatar
+            square
+            src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/item/1001.png"
+            size={30}
+          />
+          <Avatar
+            square
+            src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/item/1001.png"
+            size={30}
+          />
+          <Avatar
+            square
+            src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/item/1001.png"
+            size={30}
+          />
+          <Avatar
+            square
+            src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/item/1001.png"
+            size={30}
+          />
+        </Box>
+      </Box>
 
       <Box display="flex">
         <ActionList>
