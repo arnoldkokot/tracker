@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { PageLayout, Box, Heading } from "@primer/react";
 import Game from "./Game";
 import { useParams } from "react-router-dom";
@@ -6,6 +6,10 @@ import Pane from "./Pane";
 
 export default () => {
   const { summonerName } = useParams();
+
+  useEffect(() => {
+    console.log("Calling API");
+  }, [summonerName]);
 
   return (
     <PageLayout>

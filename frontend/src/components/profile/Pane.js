@@ -30,7 +30,7 @@ export default () => {
 
         <ActionList.Group title="Recently played with">
           {playedWith.map((player) => (
-            <Link to={`/summoner/${player}`}>
+            <Link to={`/summoner/${player}`} key={player}>
               <ActionList.Item>{player}</ActionList.Item>
             </Link>
           ))}

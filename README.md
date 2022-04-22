@@ -2,6 +2,7 @@
 
 - website descriptioon at index.html
 - bookmarks
+- pass /api calls to express
 
 # endpoints
 
