@@ -1,14 +1,18 @@
-import React, { useEffect } from "react";
-import { PageLayout, Box, Heading } from "@primer/react";
-import Game from "./Game";
+import React, { useEffect, useState } from "react";
+import { PageLayout, Box, Heading, Text, Spinner } from "@primer/react";
 import { useParams } from "react-router-dom";
-import Pane from "./Pane";
+import Game from "./profile/Game";
+import Pane from "./profile/Pane";
 
 export default () => {
   const { summonerName } = useParams();
+  const [player, setPlayer] = useState();
 
   useEffect(() => {
     console.log("Calling API");
+    fetch(`/api/player/${summonerName}`)
+      .then((data) => data.json())
+      .then((data) => setPlayer(data));
   }, [summonerName]);
 
   return (
@@ -17,10 +21,8 @@ export default () => {
         <Heading>{summonerName}</Heading>
       </PageLayout.Header>
       <PageLayout.Content>
-        <Game />
-        <Game />
-        <Game />
-        <Game />
+        {/* <Game /> */}
+        {player ? <Text>Ready</Text> : <Spinner />}
       </PageLayout.Content>
       <PageLayout.Pane>
         <Pane />

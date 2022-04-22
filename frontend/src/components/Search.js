@@ -11,11 +11,11 @@ export default () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate("summoner/" + input);
+    navigate("player/" + input);
   };
 
   const labels = cookies.bookmarked?.split(",").map((name) => (
-    <Label as={Link} to={`summoner/${name}`} size="large" key={name}>
+    <Label as={Link} to={`player/${name}`} size="large" key={name}>
       {name}
     </Label>
   ));

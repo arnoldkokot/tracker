@@ -3,9 +3,9 @@ import { Box, Heading } from "@primer/react";
 import { Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
-import Summoner from "./components/profile/Summoner";
 import Search from "./components/Search";
 import About from "./components/About";
+import Player from "./components/Player";
 
 export default () => {
   return (
@@ -13,7 +13,7 @@ export default () => {
       <Header />
       <Routes>
         <Route path="" element={<Search />} />
-        <Route path="summoner/:summonerName" element={<Summoner />} />
+        <Route path="player/:summonerName" element={<Player />} />
         <Route path="about" element={<About />} />
         <Route
           path="*"
