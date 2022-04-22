@@ -7,12 +7,8 @@ export const router = express.Router();
 router.get("/:matchId", async (req, res) => {
   try {
     let match = await database.getMatch(req.params.matchId);
-    if (match == undefined) {
-      console.log("Match from Riot");
-      match = await request(
-        `/lol/match/v5/matches/${req.params.matchId}`,
-        "europe"
-      );
+    if (!match) {
+      match = await request(`match/v5/matches/${req.params.matchId}`, "europe");
       database.saveMatch(match);
     }
     res.send(match);

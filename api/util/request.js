@@ -8,7 +8,7 @@ export default function request(path, region = "euw1") {
     const options = {
       hostname: `${region}.api.riotgames.com`,
       method: "GET",
-      path: path,
+      path: "/lol/" + path,
       headers: {
         "X-Riot-Token": process.env.API_KEY,
       },
