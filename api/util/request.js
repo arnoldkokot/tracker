@@ -1,6 +1,8 @@
 import "dotenv/config.js";
 import https from "https";
 
+let counter = 0;
+
 export default function request(path, region = "euw1") {
   return new Promise((resolve, reject) => {
     const options = {
@@ -11,6 +13,9 @@ export default function request(path, region = "euw1") {
         "X-Riot-Token": process.env.API_KEY,
       },
     };
+
+    counter++;
+    console.log(counter);
 
     https
       .request(options, (response) => {

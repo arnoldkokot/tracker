@@ -16,6 +16,7 @@ export default () => {
       <Box width={12} bg="danger.subtle" mr={3} />
 
       <Box flexGrow={1}>
+        <Text fontWeight="bold">Ranked Flex, 13 days ago</Text>
         <Box display="flex" alignItems="center">
           <Avatar
             size={40}
@@ -64,73 +65,71 @@ export default () => {
         </Box>
       </Box>
 
-      <Box display="flex">
-        <ActionList>
-          <ActionList.Item as={Link} to="/summoner/Player 1">
-            <ActionList.LeadingVisual>
-              <Avatar src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Aatrox.png" />
-            </ActionList.LeadingVisual>
-            Player 1
-          </ActionList.Item>
-          <ActionList.Item>
-            <ActionList.LeadingVisual>
-              <Avatar src="https://github.com/mona.png" />
-            </ActionList.LeadingVisual>
-            Player 2
-          </ActionList.Item>
-          <ActionList.Item>
-            <ActionList.LeadingVisual>
-              <Avatar src="https://github.com/mona.png" />
-            </ActionList.LeadingVisual>
-            Player 3
-          </ActionList.Item>
-          <ActionList.Item>
-            <ActionList.LeadingVisual>
-              <Avatar src="https://github.com/mona.png" />
-            </ActionList.LeadingVisual>
-            Player 4
-          </ActionList.Item>
-          <ActionList.Item>
-            <ActionList.LeadingVisual>
-              <Avatar src="https://github.com/mona.png" />
-            </ActionList.LeadingVisual>
-            Player 5
-          </ActionList.Item>
-        </ActionList>
+      <ActionList>
+        <ActionList.Item as={Link} to="/summoner/Player 1">
+          <ActionList.LeadingVisual>
+            <Avatar src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Aatrox.png" />
+          </ActionList.LeadingVisual>
+          Player 1
+        </ActionList.Item>
+        <ActionList.Item>
+          <ActionList.LeadingVisual>
+            <Avatar src="https://github.com/mona.png" />
+          </ActionList.LeadingVisual>
+          Player 2
+        </ActionList.Item>
+        <ActionList.Item>
+          <ActionList.LeadingVisual>
+            <Avatar src="https://github.com/mona.png" />
+          </ActionList.LeadingVisual>
+          Player 3
+        </ActionList.Item>
+        <ActionList.Item>
+          <ActionList.LeadingVisual>
+            <Avatar src="https://github.com/mona.png" />
+          </ActionList.LeadingVisual>
+          Player 4
+        </ActionList.Item>
+        <ActionList.Item>
+          <ActionList.LeadingVisual>
+            <Avatar src="https://github.com/mona.png" />
+          </ActionList.LeadingVisual>
+          Player 5
+        </ActionList.Item>
+      </ActionList>
 
-        <ActionList>
-          <ActionList.Item>
-            <ActionList.LeadingVisual>
-              <Avatar src="https://github.com/mona.png" />
-            </ActionList.LeadingVisual>
-            Player 6
-          </ActionList.Item>
-          <ActionList.Item>
-            <ActionList.LeadingVisual>
-              <Avatar src="https://github.com/mona.png" />
-            </ActionList.LeadingVisual>
-            Player 7
-          </ActionList.Item>
-          <ActionList.Item>
-            <ActionList.LeadingVisual>
-              <Avatar src="https://github.com/mona.png" />
-            </ActionList.LeadingVisual>
-            Player 8
-          </ActionList.Item>
-          <ActionList.Item>
-            <ActionList.LeadingVisual>
-              <Avatar src="https://github.com/mona.png" />
-            </ActionList.LeadingVisual>
-            Player 9
-          </ActionList.Item>
-          <ActionList.Item>
-            <ActionList.LeadingVisual>
-              <Avatar src="https://github.com/mona.png" />
-            </ActionList.LeadingVisual>
-            Player 10
-          </ActionList.Item>
-        </ActionList>
-      </Box>
+      <ActionList>
+        <ActionList.Item>
+          <ActionList.LeadingVisual>
+            <Avatar src="https://github.com/mona.png" />
+          </ActionList.LeadingVisual>
+          Player 6
+        </ActionList.Item>
+        <ActionList.Item>
+          <ActionList.LeadingVisual>
+            <Avatar src="https://github.com/mona.png" />
+          </ActionList.LeadingVisual>
+          Player 7
+        </ActionList.Item>
+        <ActionList.Item>
+          <ActionList.LeadingVisual>
+            <Avatar src="https://github.com/mona.png" />
+          </ActionList.LeadingVisual>
+          Player 8
+        </ActionList.Item>
+        <ActionList.Item>
+          <ActionList.LeadingVisual>
+            <Avatar src="https://github.com/mona.png" />
+          </ActionList.LeadingVisual>
+          Player 9
+        </ActionList.Item>
+        <ActionList.Item>
+          <ActionList.LeadingVisual>
+            <Avatar src="https://github.com/mona.png" />
+          </ActionList.LeadingVisual>
+          Player 10
+        </ActionList.Item>
+      </ActionList>
     </Box>
   );
 };
