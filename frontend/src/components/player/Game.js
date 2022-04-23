@@ -2,7 +2,8 @@ import React from "react";
 import { Box, Avatar, ActionList, Text } from "@primer/react";
 import { Link } from "react-router-dom";
 
-export default () => {
+export default (props) => {
+  const { id } = props;
   return (
     <Box
       borderColor="border.default"
