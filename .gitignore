@@ -1,3 +1,7 @@
 node_modules
 .env
+<<<<<<< HEAD
 build
+=======
+temp
+>>>>>>> second_repo/main
