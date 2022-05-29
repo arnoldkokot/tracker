@@ -45,7 +45,7 @@
 
 ## About The Project
 
-[![Preview image](preview.png)]
+![Preview image](preview.png)
 
 League tracker provides insight to League of Legends players about thier game performance, match
 history, and ranked ladder via Riot API.
