@@ -6,12 +6,10 @@
   <p align="center">
     Get insight about your ranked performance
     <br />
-    <a href="https://tracker.deithy.me/"><strong>View live »</strong></a>
     <br />
-    <br />
-    <a href="https://github.com/deithy/tracker/issues">Report bug</a>
+    <a href="https://github.com/arnoldkokot/issues">Report bug</a>
     ·
-    <a href="https://github.com/deithy/tracker/issues">Request Feature</a>
+    <a href="https://github.com/arnoldkokot/issues">Request Feature</a>
   </p>
 </p>
 
@@ -47,19 +45,10 @@
 
 ## About The Project
 
-[![Preview image](preview.png)](https://tracker.deithy.me)
+[![Preview image](preview.png)]
 
 League tracker provides insight to League of Legends players about thier game performance, match
 history, and ranked ladder via Riot API.
-
-### Features
-
-- [x] Mobile version
-- [x] Save matches in database to not trigger rate limiter
-- [x] Display top champions
-- [ ] Load more matches button
-- [ ] Match summary at the top of history
-- [ ] Click on match to display more details
 
 ### Built With
 
@@ -88,7 +77,7 @@ storing them locally.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/deithy/tracker.git
+   git clone https://github.com/arnoldkokot/tracker.git
    ```
 2. Install backend NPM packages
    ```sh
@@ -139,8 +128,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Contact
 
 Arnold Kokot - [@deithyy](https://twitter.com/deithyy) - ogkokot@gmail.com
-
-Project Link: [https://github.com/deithy/tracker](https://github.com/deithy/tracker)
 
 ## Acknowledgements
 
