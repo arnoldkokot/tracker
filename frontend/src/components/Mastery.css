@@ -1,0 +1,35 @@
+.top-champ {
+  width: 280px;
+  display: flex;
+  align-items: center;
+  margin: 30px 0px;
+}
+
+.top-champ div {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.champ-desc {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.champ-desc > p {
+  margin-top: 5px;
+}
+.top-champ img {
+  border-radius: 50%;
+  width: 60px;
+}
+.top-champ > div:first-of-type {
+  order: 1;
+}
+.top-champ > div:last-of-type {
+  order: 3;
+}
+.top-champ > div:first-of-type > img {
+  width: 80px;
+}
