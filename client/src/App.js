@@ -1,7 +1,8 @@
 import React from "react";
 import { ThemeProvider, BaseStyles, Box } from "@primer/react";
 import { Header } from "./layouts";
-import { Player } from "./pages";
+import { Home, Player } from "./pages";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -9,7 +10,11 @@ function App() {
       <BaseStyles>
         <Box minHeight="100vh" bg="canvas.default">
           <Header />
-          <Player />
+          <Routes>
+            <Route index element={<Home />} />
+            <Route path=":region/:playerName" element={<Player />} />
+            <Route path="*" element={<Home />} />
+          </Routes>
         </Box>
       </BaseStyles>
     </ThemeProvider>
