@@ -1,31 +1,28 @@
 import express from "express";
-import request from "../util/request.js";
+import riot from "../util/riot.js";
+import validateRegion from "../util/validateRegion.js";
 
 export const router = express.Router();
 
 router.get("/:summonerName", async (req, res) => {
-  const encodedName = encodeURIComponent(req.params.summonerName);
   try {
-    const playerIds = await request(
-      `summoner/v4/summoners/by-name/${encodedName}`
+    const region = validateRegion(req.query.region);
+    const encodedName = encodeURIComponent(req.params.summonerName);
+
+    const riotIDs = await riot(
+      `summoner/v4/summoners/by-name/${encodedName}`,
+      region
     );
 
-    const { id, puuid } = playerIds;
-
-    const [ranked, mastery, matches] = await Promise.all([
-      request(`league/v4/entries/by-summoner/${id}`),
-      request(`champion-mastery/v4/champion-masteries/by-summoner/${id}`),
-      request(
-        `match/v5/matches/by-puuid/${puuid}/ids?start=0&count=5`,
-        "europe"
-      ),
-    ]);
+    const entries = await riot(
+      `league/v4/entries/by-summoner/${riotIDs.id}`,
+      region
+    );
 
     res.send({
-      ...playerIds,
-      ranked,
-      matches,
-      mastery: mastery.slice(0, 3),
+      region,
+      ...riotIDs,
+      entries,
     });
   } catch (e) {
     console.error(e);
