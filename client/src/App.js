@@ -5,7 +5,7 @@ import { Player } from "./pages";
 
 function App() {
   return (
-    <ThemeProvider colorMode="night">
+    <ThemeProvider colorMode="day">
       <BaseStyles>
         <Box minHeight="100vh" bg="canvas.default">
           <Header />

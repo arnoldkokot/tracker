@@ -1,75 +1,35 @@
 import React from "react";
-import { Avatar, Box, Text } from "@primer/react";
-import championAvatar from "../../assets/Zeri.webp";
+import { Box } from "@primer/react";
+
+import MatchData from "./MatchData";
+import MatchAvatar from "./MatchAvatar";
+import MatchPlayer from "./MatchPlayer";
+import MatchItems from "./MatchItems";
+import MatchTeams from "./MatchTeams";
 
 export default function Match() {
   return (
     <Box
       bg="canvas.subtle"
       borderRadius={6}
+      borderLeft={6}
+      borderLeftColor="open.muted" /*danger.muted*/
+      borderLeftStyle="solid"
       p={2}
       mb={2}
       display="flex"
       alignItems="center"
-      sx={{ gap: "20px" }}
+      sx={{ gap: "4" }}
     >
-      <Box display="flex" flexDirection="column">
-        <Text fontSize={1} fontWeight="bold">
-          Ranked Solo
-        </Text>
-        <Text fontSize={1}>4 days ago</Text>
-        <Text fontSize={1}>26m 51s</Text>
-      </Box>
-      <Box display="flex" flexDirection="column">
-        <Avatar src={championAvatar} size={45} />
-      </Box>
-      <Box display="flex" sx={{ gap: "20px" }} ml="auto">
-        <Box display="flex" flexDirection="column">
-          <Box display="flex" sx={{ gap: "4px" }}>
-            <Avatar src={championAvatar} square />
-            <Text fontSize={1}>Ceco</Text>
-          </Box>
-          <Box display="flex" sx={{ gap: "4px" }}>
-            <Avatar src={championAvatar} square />
-            <Text fontSize={1}>Ceco</Text>
-          </Box>
-          <Box display="flex" sx={{ gap: "4px" }}>
-            <Avatar src={championAvatar} square />
-            <Text fontSize={1}>Ceco</Text>
-          </Box>
-          <Box display="flex" sx={{ gap: "4px" }}>
-            <Avatar src={championAvatar} square />
-            <Text fontSize={1}>Ceco</Text>
-          </Box>
-          <Box display="flex" sx={{ gap: "4px" }}>
-            <Avatar src={championAvatar} square />
-            <Text fontSize={1}>Ceco</Text>
-          </Box>
-        </Box>
-        <Box display="flex" flexDirection="column">
-          {" "}
-          <Box display="flex" sx={{ gap: "4px" }}>
-            <Avatar src={championAvatar} square />
-            <Text fontSize={1}>Ceco</Text>
-          </Box>
-          <Box display="flex" sx={{ gap: "4px" }}>
-            <Avatar src={championAvatar} square />
-            <Text fontSize={1}>Ceco</Text>
-          </Box>
-          <Box display="flex" sx={{ gap: "4px" }}>
-            <Avatar src={championAvatar} square />
-            <Text fontSize={1}>Ceco</Text>
-          </Box>
-          <Box display="flex" sx={{ gap: "4px" }}>
-            <Avatar src={championAvatar} square />
-            <Text fontSize={1}>Ceco</Text>
-          </Box>
-          <Box display="flex" sx={{ gap: "4px" }}>
-            <Avatar src={championAvatar} square />
-            <Text fontSize={1}>Ceco</Text>
-          </Box>
-        </Box>
-      </Box>
+      <MatchData />
+
+      <MatchAvatar />
+
+      <MatchPlayer />
+
+      <MatchItems />
+
+      <MatchTeams />
     </Box>
   );
 }
