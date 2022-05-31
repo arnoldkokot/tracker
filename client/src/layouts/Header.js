@@ -8,9 +8,10 @@ Header.propTypes = {
   name: PropTypes.string,
   profileIconId: PropTypes.number,
   summonerLevel: PropTypes.number,
+  region: PropTypes.string,
 };
 
-export default function Header({ name, profileIconId, summonerLevel }) {
+export default function Header({ name, profileIconId, summonerLevel, region }) {
   return (
     <PageLayout.Header
       sx={{
@@ -31,10 +32,13 @@ export default function Header({ name, profileIconId, summonerLevel }) {
         justifyContent="space-around"
         alignItems="flex-start"
       >
-        <Box display="flex" alignItems="center" sx={{ gap: "9px" }}>
-          <Heading sx={{ marginBottom: "10px" }}>{name}</Heading>
-          <Label sx={{ display: ["none", "inline-flex"] }}>
+        <Box display="flex" alignItems="center" mb={2} sx={{ gap: "9px" }}>
+          <Heading>{name}</Heading>
+          <Label size="large" sx={{ display: ["none", "inline-flex"] }}>
             {summonerLevel} lvl
+          </Label>
+          <Label size="large" sx={{ display: ["none", "inline-flex"] }}>
+            {region}
           </Label>
         </Box>
         <Button>Refresh</Button>

@@ -17,6 +17,7 @@ export default function MatchPlayer({ kills, deaths, assists }) {
       display="flex"
       flexDirection="column"
       alignItems="center"
+      width={86}
     >
       <Text fontWeight="bold">
         {kills} / {deaths} / {assists}
@@ -24,7 +25,7 @@ export default function MatchPlayer({ kills, deaths, assists }) {
       <Text fontSize={1} mb={1}>
         {deaths === 0 ? "Perfect" : kda.toFixed(1) + " KDA"}
       </Text>
-      <Label variant="success">Performance</Label>
+      {kda > 3 && <Label variant="success">Performance</Label>}
     </Box>
   );
 }

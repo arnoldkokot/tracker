@@ -3,7 +3,7 @@ import { Container } from "..";
 import { Box, Text } from "@primer/react";
 import PropTypes from "prop-types";
 
-import { formatDuration, formatCreation } from "../../helpers";
+import { formatDuration, formatCreation, getQueue } from "../../helpers";
 
 import MatchAvatar from "./MatchAvatar";
 import MatchPlayer from "./MatchPlayer";
@@ -32,7 +32,7 @@ export default function Match({ info, puuid }) {
     >
       <Box flexShrink={0} display="flex" flexDirection="column" ml={1}>
         <Text fontSize={1} fontWeight="bold">
-          {info.gameType}
+          {getQueue(info.queueId)}
         </Text>
         <Text fontSize={1}>{formatCreation(info.gameCreation)}</Text>
         <Text fontSize={1}>{formatDuration(info.gameDuration)}</Text>

@@ -1,4 +1,7 @@
-const fetchData = async (name, region) => {
+import summoner from "./assets/summoner.json";
+import queue from "./assets/queue.json";
+
+const fetchPlayer = async (name, region) => {
   const player = await fetch(`/api/player/${name}?region=${region}`).then(
     (res) => res.json()
   );
@@ -28,4 +31,45 @@ function formatCreation(unix) {
   return `${days} day${days > 1 ? "s" : ""} ago`;
 }
 
-export { fetchData, formatDuration, formatCreation };
+function getSummoner(id) {
+  return summoner[id]?.id;
+}
+
+function getQueue(id) {
+  return queue.find((obj) => obj.queueId === id)?.description;
+}
+/*
+countRecent outputs: 
+[
+  {name: "Player 1", count: 3},
+  {name: "Player 2", count: 4},
+] 
+Alternative as object
+.reduce(
+  (counted, current) => ({
+    ...counted,
+    [current]: counted[current] + 1 || 1,
+  }),{}
+);
+*/
+function countRecent(matches) {
+  return matches
+    .map((match) => match.info.participants)
+    .flat()
+    .map((player) => player.summonerName)
+    .reduce((counted, current) => {
+      const found = counted.find((e) => e.name === current);
+      if (found) found.count++;
+      return found ? [...counted] : [...counted, { name: current, count: 1 }];
+    }, [])
+    .filter((e) => e.count > 1);
+}
+
+export {
+  fetchPlayer,
+  formatDuration,
+  formatCreation,
+  getSummoner,
+  getQueue,
+  countRecent,
+};

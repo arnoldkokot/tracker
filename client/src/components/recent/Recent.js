@@ -1,9 +1,16 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Box, Text } from "@primer/react";
 
 import { Container } from "..";
+import { countRecent } from "../../helpers";
 
-export default function Recent() {
+Recent.propTypes = {
+  matches: PropTypes.array,
+  name: PropTypes.name,
+};
+
+export default function Recent({ matches, name }) {
   return (
     <Container mb={2}>
       <Box display="flex" justifyContent="space-between">
@@ -11,21 +18,17 @@ export default function Recent() {
           Recently played with
         </Text>
         <Text fontWeight="bold" fontSize={1}>
-          20 games
+          {matches.length} games
         </Text>
       </Box>
-      <Box display="flex" justifyContent="space-between" mt={1}>
-        <Text fontSize={1}>Kad1</Text>
-        <Text fontSize={1}>4W 5L</Text>
-      </Box>
-      <Box display="flex" justifyContent="space-between" mt={1}>
-        <Text fontSize={1}>Toksyczna Wróżka </Text>
-        <Text fontSize={1}>3W 1L</Text>
-      </Box>
-      <Box display="flex" justifyContent="space-between" mt={1}>
-        <Text fontSize={1}>TaKeoo0</Text>
-        <Text fontSize={1}>2W 51</Text>
-      </Box>
+      {countRecent(matches)
+        .filter((e) => e.name !== name)
+        .map(({ name, count }) => (
+          <Box display="flex" justifyContent="space-between" mt={1} key={name}>
+            <Text fontSize={1}>{name}</Text>
+            <Text fontSize={1}>{count}</Text>
+          </Box>
+        ))}
     </Container>
   );
 }

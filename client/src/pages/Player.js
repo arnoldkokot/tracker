@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import { Header, Content, Footer, Loading, Center, Pane } from "../layouts";
-import { fetchData } from "../helpers";
+import { fetchPlayer } from "../helpers";
 
 export default function Player() {
   const [data, setData] = useState(null);
@@ -11,7 +11,7 @@ export default function Player() {
 
   useEffect(() => {
     setFetching(true);
-    fetchData(playerName, region)
+    fetchPlayer(playerName, region)
       .then((data) => {
         setData(data);
         setFetching(false);

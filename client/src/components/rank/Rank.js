@@ -3,8 +3,6 @@ import { Box, Text, Avatar } from "@primer/react";
 import PropTypes from "prop-types";
 import { Container } from "..";
 
-import platinum from "../../assets/platinum.webp";
-
 Rank.propTypes = {
   title: PropTypes.string,
   tier: PropTypes.string,
@@ -27,7 +25,7 @@ export default function Rank({ title, tier, rank, leaguePoints }) {
       </Box>
       {tier && (
         <Box display="flex" alignItems="center">
-          <Avatar src={platinum} size={72} />
+          <Avatar src={`/img/${tier}.webp`} size={72} />
           <Box>
             <Text as="p" fontWeight="bold" fontSize={3} m={0}>
               {tier.charAt(0).toUpperCase() + tier.slice(1).toLowerCase() + " "}
