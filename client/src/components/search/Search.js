@@ -27,6 +27,7 @@ export default function Search({ focus }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     navigate("/" + region.toLowerCase() + "/" + input);
+    setInput("");
   };
 
   return (

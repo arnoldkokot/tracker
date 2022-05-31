@@ -11,6 +11,11 @@ import database from "./util/database.js";
 const app = express();
 app.use(cors());
 
+app.use(function (req, res, next) {
+  console.log("API HIT!");
+  next();
+});
+
 app.use("/api/player", playerRouter);
 app.use("/api/list", listRouter);
 app.use("/api/match", matchRouter);

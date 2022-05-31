@@ -1,7 +1,16 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Box, Text, Label } from "@primer/react";
 
-export default function MatchPlayer() {
+MatchPlayer.propTypes = {
+  kills: PropTypes.number,
+  deaths: PropTypes.number,
+  assists: PropTypes.number,
+};
+
+export default function MatchPlayer({ kills, deaths, assists }) {
+  const kda = (kills + assists) / deaths;
+
   return (
     <Box
       flexShrink={0}
@@ -9,9 +18,11 @@ export default function MatchPlayer() {
       flexDirection="column"
       alignItems="center"
     >
-      <Text fontWeight="bold">10 / 0 / 10</Text>
+      <Text fontWeight="bold">
+        {kills} / {deaths} / {assists}
+      </Text>
       <Text fontSize={1} mb={1}>
-        5.44:1 KDA
+        {deaths === 0 ? "Perfect" : kda.toFixed(1) + " KDA"}
       </Text>
       <Label variant="success">Performance</Label>
     </Box>

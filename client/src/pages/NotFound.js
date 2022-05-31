@@ -1,9 +1,8 @@
 import React from "react";
 import { Heading } from "@primer/react";
-import { Search } from "../components";
 import { Center } from "../layouts";
 
-export default function Home() {
+export default function NotFound() {
   return (
     <Center>
       <Heading
@@ -13,9 +12,8 @@ export default function Home() {
           marginBottom: "50px",
         }}
       >
-        League tracker
+        404
       </Heading>
-      <Search focus />
     </Center>
   );
 }

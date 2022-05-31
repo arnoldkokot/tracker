@@ -1,10 +1,16 @@
 import React from "react";
 import { Box, Avatar } from "@primer/react";
+import PropsTypes from "prop-types";
 
-import flashIcon from "../../assets/flash.webp";
-import championAvatar from "../../assets/Zeri.webp";
+import config from "../../config.json";
 
-export default function MatchAvatar() {
+MatchAvatar.propTypes = {
+  championName: PropsTypes.string,
+  summoner1Id: PropsTypes.number,
+  summoner2Id: PropsTypes.number,
+};
+
+export default function MatchAvatar({ championName }) {
   return (
     <Box
       flexShrink={0}
@@ -13,10 +19,18 @@ export default function MatchAvatar() {
       alignItems="center"
       sx={{ gap: "5px" }}
     >
-      <Avatar src={championAvatar} size={45} />
+      <Avatar src={`${config.CDN}img/champion/${championName}.png`} size={45} />
       <Box display="flex" sx={{ gap: "5px" }}>
-        <Avatar src={flashIcon} size={24} square />
-        <Avatar src={flashIcon} size={24} square />
+        <Avatar
+          src={`${config.CDN}img/spell/SummonerFlash.png`}
+          size={24}
+          square
+        />
+        <Avatar
+          src={`${config.CDN}img/spell/SummonerFlash.png`}
+          size={24}
+          square
+        />
       </Box>
     </Box>
   );

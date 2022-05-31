@@ -1,9 +1,19 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Box, Avatar } from "@primer/react";
 
-import championAvatar from "../../assets/Zeri.webp";
+import config from "../../config.json";
 
-export default function MatchItems() {
+MatchItems.propTypes = {
+  item0: PropTypes.number,
+  item1: PropTypes.number,
+  item2: PropTypes.number,
+  item3: PropTypes.number,
+  item4: PropTypes.number,
+  item5: PropTypes.number,
+};
+
+export default function MatchItems(props) {
   return (
     <Box
       flexShrink={0}
@@ -12,12 +22,37 @@ export default function MatchItems() {
       gridGap={1}
       sx={{ display: ["none", "grid"] }}
     >
-      <Avatar src={championAvatar} size={32} square />
-      <Avatar src={championAvatar} size={32} square />
-      <Avatar src={championAvatar} size={32} square />
-      <Avatar src={championAvatar} size={32} square />
-      <Avatar src={championAvatar} size={32} square />
-      <Avatar src={championAvatar} size={32} square />
+      {/* ITS RIOTS FAULT? NOT MINE*/}
+      <Avatar
+        src={`${config.CDN}img/item/${props.item0}.png`}
+        size={32}
+        square
+      />
+      <Avatar
+        src={`${config.CDN}img/item/${props.item1}.png`}
+        size={32}
+        square
+      />
+      <Avatar
+        src={`${config.CDN}img/item/${props.item2}.png`}
+        size={32}
+        square
+      />
+      <Avatar
+        src={`${config.CDN}img/item/${props.item3}.png`}
+        size={32}
+        square
+      />
+      <Avatar
+        src={`${config.CDN}img/item/${props.item4}.png`}
+        size={32}
+        square
+      />
+      <Avatar
+        src={`${config.CDN}img/item/${props.item5}.png`}
+        size={32}
+        square
+      />
     </Box>
   );
 }

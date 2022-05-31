@@ -1,37 +1,34 @@
-import React, { useEffect } from "react";
-import { PageLayout } from "@primer/react";
-
-import { Rank, Recent, Match, PlayerHeader } from "../components";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+import { Header, Content, Footer, Loading, Center, Pane } from "../layouts";
+import { fetchData } from "../helpers";
+
 export default function Player() {
-  let params = useParams();
+  const [data, setData] = useState(null);
+  const [fetching, setFetching] = useState(true);
+  let { playerName, region } = useParams();
 
   useEffect(() => {
-    console.log("Player effect");
-  }, [params]);
+    setFetching(true);
+    fetchData(playerName, region)
+      .then((data) => {
+        setData(data);
+        setFetching(false);
+      })
+      .catch((error) => console.log(error));
+  }, [playerName, region]);
+
+  if (fetching) return <Loading />;
+
+  if (data.status !== undefined) <Center>{JSON.stringify(data.status)}</Center>;
 
   return (
-    <PageLayout>
-      <PageLayout.Header
-        sx={{ display: "flex", gap: "24px", alignItems: "center" }}
-      >
-        <PlayerHeader />
-      </PageLayout.Header>
-      <PageLayout.Pane position="start">
-        <Rank />
-        <Rank unranked />
-        <Recent />
-      </PageLayout.Pane>
-      <PageLayout.Content>
-        <Match />
-        <Match />
-        <Match />
-        <Match />
-      </PageLayout.Content>
-      <PageLayout.Footer>
-        {params.playerName} @ {params.region}
-      </PageLayout.Footer>
-    </PageLayout>
+    <>
+      <Header {...data} />
+      <Pane {...data} />
+      <Content matches={data.matches} puuid={data.puuid} />
+      <Footer />
+    </>
   );
 }
