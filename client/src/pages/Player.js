@@ -3,10 +3,12 @@ import { useParams } from "react-router-dom";
 
 import { Header, Content, Footer, Loading, Center, Pane } from "../layouts";
 import { fetchPlayer } from "../helpers";
+import { Heading } from "@primer/react";
 
 export default function Player() {
   const [data, setData] = useState(null);
   const [fetching, setFetching] = useState(true);
+  const [failed, setFailed] = useState(false);
   let { playerName, region } = useParams();
 
   useEffect(() => {
@@ -16,12 +18,23 @@ export default function Player() {
         setData(data);
         setFetching(false);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        setFailed(true);
+        setFetching(false);
+      });
   }, [playerName, region]);
 
   if (fetching) return <Loading />;
 
-  if (data.status !== undefined) <Center>{JSON.stringify(data.status)}</Center>;
+  if (failed)
+    return (
+      <Center>
+        <Heading sx={{ fontSize: 3, textAlign: "center" }}>
+          Summoner does not exist
+        </Heading>
+      </Center>
+    );
 
   return (
     <>

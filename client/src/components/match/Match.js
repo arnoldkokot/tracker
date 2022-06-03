@@ -29,6 +29,16 @@ export default function Match({ info, puuid }) {
     );
   }
 
+  const items = [...Array(6).keys()].map((key) => player[`item${key}`]);
+
+  // Riot CDN does not respond to capital S only for this champ lol
+  if (player.championName === "FiddleSticks")
+    player.championName = "Fiddlesticks";
+  info.participants.forEach((participant) => {
+    if (participant.championName === "FiddleSticks")
+      participant.championName = "Fiddlesticks";
+  });
+
   return (
     <Container
       mb={2}
@@ -49,7 +59,7 @@ export default function Match({ info, puuid }) {
 
       <MatchAvatar {...player} />
       <MatchPlayer {...player} />
-      <MatchItems {...player} />
+      <MatchItems items={items} />
       <Participants participants={info.participants} />
     </Container>
   );

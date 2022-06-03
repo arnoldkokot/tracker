@@ -10,6 +10,7 @@ const fetchPlayer = async (name, region) => {
     (res) => res.json()
   );
 
+  // .map fails here if summoner doesnt exist
   const matches = await Promise.all(
     matchList.map((matchID) =>
       fetch(`/api/match/${matchID}`).then((res) => res.json())

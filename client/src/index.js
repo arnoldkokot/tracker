@@ -1,20 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import { ThemeProvider, BaseStyles, Box } from "@primer/react";
 
 import App from "./App";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ThemeProvider colorMode="night">
-        <BaseStyles>
-          <Box minHeight="100vh" bg="canvas.default">
-            <App />
-          </Box>
-        </BaseStyles>
-      </ThemeProvider>
+      <App />
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
