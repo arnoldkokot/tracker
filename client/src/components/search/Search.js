@@ -13,13 +13,15 @@ const REGIONS = ["EUW", "EUNE"];
 
 Search.propTypes = {
   focus: PropTypes.bool,
+  example: PropTypes.bool,
 };
 
 Search.defaultProps = {
   focus: false,
+  example: false,
 };
 
-export default function Search({ focus }) {
+export default function Search({ focus, example }) {
   const [region, setRegion] = useState(REGIONS[0]);
   const [input, setInput] = useState("");
   let navigate = useNavigate();
@@ -54,7 +56,9 @@ export default function Search({ focus }) {
         <TextInput
           aria-label="Player name"
           name="playerName"
-          placeholder="Player name"
+          placeholder={
+            example ? "Player name (eg. 'Wicked Game')" : "Player name"
+          }
           autoComplete="off"
           autoFocus={focus}
           block
