@@ -16,9 +16,11 @@ Match.propTypes = {
 };
 
 export default function Match({ info, puuid }) {
+  console.log(info, puuid);
   const player = info.participants.find(
     (participant) => participant.puuid === puuid
   );
+  console.log("Found player: ", player);
 
   return (
     <Container
