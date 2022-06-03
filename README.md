@@ -106,8 +106,9 @@ storing them locally.
    ```
 7. Run project
    ```sh
-   npm start
+   npm build_public
    ```
+8. Visit localhost:yourport
 
 ## Usage
 
