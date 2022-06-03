@@ -1,3 +1,4 @@
+import "dotenv/config.js";
 import { MongoClient } from "mongodb";
 
 class Mongo {
@@ -10,8 +11,10 @@ class Mongo {
 
   async connect() {
     await this.client.connect();
-    this.collection = this.client.db("lol-tracker").collection("matches");
-    console.log("MongoDB connected");
+    this.collection = this.client
+      .db("lol-tracker")
+      .collection(process.env.DB_COLLECTION_NAME);
+    console.log(`MongoDB connected to ${process.env.DB_COLLECTION_NAME}.`);
   }
 
   async getMatch(matchId) {

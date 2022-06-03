@@ -1,7 +1,6 @@
 import "dotenv/config.js";
 import https from "https";
 
-let counter = 0;
 /**
  * Example riot requests
  * EUNE Deithy
@@ -35,9 +34,6 @@ export default function riot(path, region = "europe") {
         "X-Riot-Token": process.env.API_KEY,
       },
     };
-
-    counter++;
-    console.log(counter);
 
     https
       .request(options, (response) => {

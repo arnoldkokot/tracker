@@ -79,27 +79,29 @@ storing them locally.
    ```
 2. Install backend NPM packages
    ```sh
-   cd backend
+   cd api
    npm install
    ```
-3. Create .env file
+3. Fill variables in .env file
    ```sh
-   touch .env
+   mv .env.template .env
    nano .env
    ```
-4. Paste your API key and mongoDB connection string
+4. Example variables
    ```sh
    API_KEY=*riot api key*
    PORT=5000
    DB_CONNECTION_STRING=*mongoDB connection string*
+   DB_COLLECTION_NAME=matches
+   ALLOW_CORS=true
    ```
-5. Run backend
+5. Run api
    ```sh
    npm run dev
    ```
 6. Install frontend NPM packages
    ```sh
-   cd frontend
+   cd client
    npm install
    ```
 7. Run project
@@ -137,6 +139,8 @@ Arnold Kokot - [@deithyy](https://twitter.com/deithyy) - ogkokot@gmail.com
 
 - [Express](https://expressjs.com/)
 - [MongoDB](https://www.mongodb.com/)
+- [Dotenv](https://www.npmjs.com/package/dotenv)
 - [Create react app](https://create-react-app.dev/)
 - [React](https://reactjs.org/)
-- [Redux toolkit](https://redux-toolkit.js.org/)
+- [Primer.style](https://primer.style/)
+- [Styled components](https://styled-components.com/)

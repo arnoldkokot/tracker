@@ -16,11 +16,18 @@ Match.propTypes = {
 };
 
 export default function Match({ info, puuid }) {
-  console.log(info, puuid);
   const player = info.participants.find(
     (participant) => participant.puuid === puuid
   );
-  console.log("Found player: ", player);
+
+  if (!player) {
+    return (
+      <Text>
+        PUUIDs from match and ids requests dont match, database is probably
+        polluted with games requested using different key
+      </Text>
+    );
+  }
 
   return (
     <Container

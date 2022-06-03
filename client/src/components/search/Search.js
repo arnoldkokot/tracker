@@ -56,9 +56,7 @@ export default function Search({ focus, example }) {
         <TextInput
           aria-label="Player name"
           name="playerName"
-          placeholder={
-            example ? "Player name (eg. 'Wicked Game')" : "Player name"
-          }
+          placeholder={example ? "Player name (eg. 'Deith')" : "Player name"}
           autoComplete="off"
           autoFocus={focus}
           block
