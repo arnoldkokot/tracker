@@ -1,5 +1,8 @@
 import express from "express";
 import "dotenv/config.js";
+import * as path from "path";
+import { fileURLToPath } from "url";
+
 //import cors from "cors";
 
 import { router as playerRouter } from "./routes/player.js";
@@ -8,6 +11,7 @@ import { router as matchRouter } from "./routes/match.js";
 
 import database from "./util/database.js";
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
 //app.use(cors());
 
@@ -23,13 +27,7 @@ app.use("/api/match", matchRouter);
 app.use(express.static("public"));
 
 app.get("/*", (req, res) => {
-  res.status(404);
-  res.send({
-    status: {
-      message: "Bad path",
-      status_code: 404,
-    },
-  });
+  res.sendFile(path.join(__dirname, "./public", "index.html"));
 });
 
 function boot() {
