@@ -63,8 +63,6 @@ Major tools used are listed below, to see the full list go to acknowledgements.
 
 ## Getting Started
 
-If you would like to see how the project works you may want to install it on your machine.
-
 To get a local copy up and running follow steps below.
 
 ### Prerequisites
@@ -115,11 +113,17 @@ storing them locally.
 
 All API request start with `/api/` and are guaranteed to return JSON data.
 
-- `/api/summoner/:summonerName`
+- `/api/player/:playerName`
   Responds with combined stats about player, costs 3-4 requests as name gets cashed for 3h
 
-- `/api/match/:matchId`
-  Responds with info and metadata about given match id, costs 0-1 riot requests
+- `/api/matchlist/:puuid?page=:number`
+  Responds with a list of 5 game ids for a given puuid (start index is page number), costs 1 riot request
+
+- `/api/match/:id`
+  Responds with info and metadata about given match id, costs 0-1 riot requests, depends on whether match is already in the database.
+
+- `/api/list/:playerName`
+  Responds with data set combined from all previous requests (with page in matchlist set to 1) costs 2 - 7 riot request
 
 ## License
 
