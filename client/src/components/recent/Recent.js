@@ -7,7 +7,7 @@ import { countRecent } from "../../helpers";
 
 Recent.propTypes = {
   matches: PropTypes.array,
-  name: PropTypes.name,
+  name: PropTypes.string,
 };
 
 export default function Recent({ matches, name }) {

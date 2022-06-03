@@ -25,7 +25,7 @@ export default function Player() {
 
   return (
     <>
-      <Header {...data} />
+      <Header {...data} region={region} />
       <Pane {...data} />
       <Content matches={data.matches} puuid={data.puuid} />
       <Footer />

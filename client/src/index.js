@@ -8,7 +8,7 @@ import App from "./App";
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ThemeProvider colorMode="day">
+      <ThemeProvider colorMode="night">
         <BaseStyles>
           <Box minHeight="100vh" bg="canvas.default">
             <App />
