@@ -2,7 +2,7 @@ import React from "react";
 import { PageLayout } from "@primer/react";
 import PropTypes from "prop-types";
 
-import { Rank, Recent } from "../components";
+import { Rank, Recent } from "../../components";
 
 Pane.propTypes = {
   entries: PropTypes.array,

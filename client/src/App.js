@@ -1,24 +1,24 @@
-import { PageLayout } from "@primer/react";
-import React, { useState } from "react";
-import { Navigation } from "./layouts";
-import Routing from "./Routing";
-import { ThemeProvider, BaseStyles, Box } from "@primer/react";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import { Box, PageLayout } from "@primer/react";
+import { Footer, Navigation } from "./layouts";
+import { Missing, Home, Player } from "./pages";
 
 function App() {
-  const [theme, setTheme] = useState("night");
-  const toggleTheme = () => setTheme(theme === "day" ? "night" : "day");
-
   return (
-    <ThemeProvider colorMode={theme}>
-      <BaseStyles>
-        <Box minHeight="100vh" bg="canvas.default">
-          <Navigation toggleTheme={toggleTheme} theme={theme} />
-          <PageLayout>
-            <Routing />
-          </PageLayout>
-        </Box>
-      </BaseStyles>
-    </ThemeProvider>
+    <Box minHeight="100vh" bg="canvas.default">
+      <Navigation />
+
+      <PageLayout>
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path=":region/:playerName" element={<Player />} />
+          <Route path="*" element={<Missing />} />
+        </Routes>
+      </PageLayout>
+
+      <Footer />
+    </Box>
   );
 }
 

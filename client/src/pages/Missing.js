@@ -2,7 +2,7 @@ import React from "react";
 import { Heading } from "@primer/react";
 import { Center } from "../layouts";
 
-export default function NotFound() {
+export default function Missing() {
   return (
     <Center>
       <Heading

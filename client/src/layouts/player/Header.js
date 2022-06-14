@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Box, Avatar, Heading, Button, PageLayout, Label } from "@primer/react";
 
-import config from "../config.json";
+import config from "../../config.json";
 
 Header.propTypes = {
   name: PropTypes.string,

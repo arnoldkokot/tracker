@@ -2,7 +2,7 @@ import React from "react";
 import { PageLayout } from "@primer/react";
 import PropTypes from "prop-types";
 
-import { Match } from "../components";
+import { Match } from "../../components";
 
 Content.propTypes = {
   matches: PropTypes.array,
