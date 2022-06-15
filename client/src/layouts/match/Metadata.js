@@ -2,13 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Box, Text, Label } from "@primer/react";
 
-MatchPlayer.propTypes = {
+Metadata.propTypes = {
   kills: PropTypes.number,
   deaths: PropTypes.number,
   assists: PropTypes.number,
 };
 
-export default function MatchPlayer({ kills, deaths, assists }) {
+export default function Metadata({ kills, deaths, assists }) {
   const kda = (kills + assists) / deaths;
 
   return (

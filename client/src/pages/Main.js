@@ -4,10 +4,10 @@ import { Spinner, Box, PageLayout } from "@primer/react";
 
 import { PlayerContext } from "../helpers";
 import Error from "./Error";
-import { Header, Content } from "../layouts";
+import { Player } from "../layouts";
 import { usePlayer } from "../hooks";
 
-export default function PlayerPage() {
+export default function Main() {
   let { playerName, region } = useParams();
   let { data: player, error } = usePlayer(playerName, region);
 
@@ -34,10 +34,7 @@ export default function PlayerPage() {
 
   return (
     <PlayerContext.Provider value={player}>
-      <Header />
-      <Content />
-      {/* <Pane />
-      <Footer /> */}
+      <Player />
     </PlayerContext.Provider>
   );
 }

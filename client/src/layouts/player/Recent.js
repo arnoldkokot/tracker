@@ -1,16 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useContext } from "react";
 import { Box, Text } from "@primer/react";
 
-import { Container } from "..";
-import { countRecent } from "../../helpers";
+import { Container } from "../../components";
+import { countRecent, PlayerContext } from "../../helpers";
 
-Recent.propTypes = {
-  matches: PropTypes.array,
-  name: PropTypes.string,
-};
-
-export default function Recent({ matches, name }) {
+export default function Recent() {
+  const { matches, name } = useContext(PlayerContext);
   return (
     <Container mb={2}>
       <Box display="flex" justifyContent="space-between">

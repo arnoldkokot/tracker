@@ -4,11 +4,11 @@ import { Box, Avatar } from "@primer/react";
 
 import config from "../../config.json";
 
-MatchItems.propTypes = {
+Items.propTypes = {
   items: PropTypes.array,
 };
 
-export default function MatchItems({ items }) {
+export default function Items({ items }) {
   return (
     <Box
       flexShrink={0}
@@ -23,7 +23,7 @@ export default function MatchItems({ items }) {
             src={`${config.CDN}img/item/${item}.png`}
             size={32}
             square
-            key={item}
+            key={index}
           />
         ) : (
           <Box width={32} height={32} bg={"neutral.muted"} key={index} />

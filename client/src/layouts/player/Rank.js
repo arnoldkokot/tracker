@@ -1,38 +1,43 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Box, Text, Avatar } from "@primer/react";
 import PropTypes from "prop-types";
-import { Container } from "..";
+import { Container } from "../../components";
+import { PlayerContext } from "../../helpers";
 
 Rank.propTypes = {
   title: PropTypes.string,
-  tier: PropTypes.string,
-  rank: PropTypes.string,
-  leaguePoints: PropTypes.number,
+  queueType: PropTypes.string,
 };
 
-export default function Rank({ title, tier, rank, leaguePoints }) {
+export default function Rank({ title, queueType }) {
+  const { entries } = useContext(PlayerContext);
+
+  const entry = entries.find((entry) => entry.queueType === queueType);
+
   return (
     <Container mb={2}>
       <Box display="flex" justifyContent="space-between">
         <Text fontWeight="bold" fontSize={1}>
           {title}
         </Text>
-        {!tier && (
+        {!entry && (
           <Text fontWeight="bold" fontSize={1}>
             Unranked
           </Text>
         )}
       </Box>
-      {tier && (
+      {entry && (
         <Box display="flex" alignItems="center">
-          <Avatar src={`/img/${tier}.webp`} size={72} />
+          <Avatar src={`/img/${entry.tier}.webp`} size={72} />
           <Box>
             <Text as="p" fontWeight="bold" fontSize={3} m={0}>
-              {tier.charAt(0).toUpperCase() + tier.slice(1).toLowerCase() + " "}
-              {rank}
+              {entry.tier.charAt(0).toUpperCase() +
+                entry.tier.slice(1).toLowerCase() +
+                " "}
+              {entry.rank}
             </Text>
             <Text as="p" fontSize={1} m={0}>
-              {leaguePoints} LP
+              {entry.leaguePoints} LP
             </Text>
           </Box>
         </Box>

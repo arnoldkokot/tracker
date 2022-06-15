@@ -1,9 +1,17 @@
-import Navigation from "./Navigation";
-import Footer from "./Footer";
+export { default as Navigation } from "./Navigation";
+export { default as Footer } from "./Footer";
+export { default as Player } from "./Player";
+export { default as Match } from "./Match";
 
-import Content from "./player/Content";
-import Header from "./player/Header";
-import Pane from "./player/Pane";
-import Bar from "./player/Bar";
+// Player layout elements
+export { default as Header } from "./player/Header";
+export { default as Recent } from "./player/Recent";
+export { default as Rank } from "./player/Rank";
+export { default as Summary } from "./player/Summary";
+export { default as History } from "./player/History";
 
-export { Navigation, Content, Footer, Header, Pane, Bar };
+// Match layout elements
+export { default as Avatar } from "./match/Avatar";
+export { default as Metadata } from "./match/Metadata";
+export { default as Items } from "./match/Items";
+export { default as Participants } from "./match/Participants";
