@@ -1,26 +1,39 @@
 import { useEffect, useState } from "react";
 
+async function api(url) {
+  let response = await fetch(url);
+  response = await response.json();
+  if (response?.status) throw response;
+  return response;
+}
+
+async function fetchPage(puuid, page) {
+  let list = await api(`/api/list/${puuid}?page=${page}`);
+
+  return await Promise.all(list?.map((id) => api(`/api/match/${id}`)));
+}
+
 async function fetchPlayer(name, region) {
-  let player = await fetch(`/api/player/${name}?region=${region}`);
-  player = await player.json();
-  if (player?.status) throw player;
+  let player = await api(`/api/player/${name}?region=${region}`);
 
-  let list = await fetch(`/api/list/${player.puuid}?page=1`);
-  list = await list.json();
-  if (list?.status) throw list;
+  const matches = await fetchPage(player.puuid, 1);
 
-  const matches = await Promise.all(
-    list?.map((matchID) =>
-      fetch(`/api/match/${matchID}`).then((res) => res.json())
-    )
-  );
-
-  return { ...player, matches };
+  return { ...player, matches, currentPage: 1 };
 }
 
 export default function usePlayer(name, region) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
+
+  const extend = () => {
+    fetchPage(data.puuid, data.currentPage + 1).then((newMatches) => {
+      setData({
+        ...data,
+        matches: [...data.matches, ...newMatches],
+        currentPage: data.currentPage + 1,
+      });
+    });
+  };
 
   useEffect(() => {
     setData(null);
@@ -35,5 +48,9 @@ export default function usePlayer(name, region) {
       });
   }, [name, region]);
 
-  return { data, error };
+  return {
+    player: data,
+    error,
+    extend,
+  };
 }

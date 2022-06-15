@@ -1,7 +1,6 @@
 import React from "react";
 import { Routes, Route, Outlet } from "react-router-dom";
-import { PageLayout } from "@primer/react";
-import { Footer } from "./layouts";
+import { PageLayout, Link } from "@primer/react";
 import { Error, Home, Main } from "./pages";
 import { Search } from "./components";
 
@@ -15,8 +14,10 @@ function App() {
           <Route path="*" element={<Error title="Page missing" code={404} />} />
         </Route>
       </Routes>
-      <PageLayout.Footer>
-        <Footer />
+      <PageLayout.Footer sx={{ fontFamily: "mono", paddingTop: "5" }}>
+        <Link href="https://arnoldkokot.com" target="_blank">
+          Created by Arnold Kokot
+        </Link>
       </PageLayout.Footer>
     </PageLayout>
   );
