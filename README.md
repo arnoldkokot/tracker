@@ -9,6 +9,9 @@
     <a href="https://tracker.arnoldkokot.com/"><strong>View website »</strong></a>
     <br />
     <br />
+    <a href="https://github.com/arnoldkokot/tracker/issues">Report bug</a>
+    ·
+    <a href="https://github.com/arnoldkokot/tracker/issues">Request Feature</a>
   </p>
 </p>
 
