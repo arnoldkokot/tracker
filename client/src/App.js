@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route, Outlet } from "react-router-dom";
 import { PageLayout } from "@primer/react";
 import { Footer } from "./layouts";
-import { Error, Home, Player } from "./pages";
+import { Error, Home, PlayerPage } from "./pages";
 import { Search } from "./components";
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route index element={<Home />} />
         <Route path="*" element={<Wrapper />}>
-          <Route path=":region/:playerName" element={<Player />} />
+          <Route path=":region/:playerName" element={<PlayerPage />} />
           <Route path="*" element={<Error title="Page missing" code={404} />} />
         </Route>
       </Routes>

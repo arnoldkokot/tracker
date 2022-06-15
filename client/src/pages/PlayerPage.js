@@ -1,13 +1,13 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { Spinner, Box } from "@primer/react";
+import { Spinner, Box, PageLayout } from "@primer/react";
 
 import { PlayerContext } from "../helpers";
 import Error from "./Error";
-import { Layout, Header, Content } from "../layouts";
+import { Header, Content } from "../layouts";
 import { usePlayer } from "../hooks";
 
-export default function Player() {
+export default function PlayerPage() {
   let { playerName, region } = useParams();
   let { data: player, error } = usePlayer(playerName, region);
 
@@ -18,11 +18,18 @@ export default function Player() {
 
   if (player === null)
     return (
-      <Layout.Center>
+      <PageLayout.Content
+        sx={{
+          minHeight: "80vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <Box width={64} margin="0 auto">
           <Spinner size="large" />
         </Box>
-      </Layout.Center>
+      </PageLayout.Content>
     );
 
   return (
