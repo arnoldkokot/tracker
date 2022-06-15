@@ -1,24 +1,35 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
-import { Box, PageLayout } from "@primer/react";
-import { Footer, Navigation } from "./layouts";
-import { Missing, Home, Player } from "./pages";
+import { Routes, Route, Outlet } from "react-router-dom";
+import { PageLayout } from "@primer/react";
+import { Footer } from "./layouts";
+import { Error, Home, Player } from "./pages";
+import { Search } from "./components";
 
 function App() {
   return (
-    <Box minHeight="100vh" bg="canvas.default">
-      <Navigation />
-
-      <PageLayout>
-        <Routes>
-          <Route index element={<Home />} />
+    <PageLayout sx={{ minHeight: "calc(100vh - 56px)" }}>
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="*" element={<Wrapper />}>
           <Route path=":region/:playerName" element={<Player />} />
-          <Route path="*" element={<Missing />} />
-        </Routes>
-      </PageLayout>
+          <Route path="*" element={<Error title="Page missing" code={404} />} />
+        </Route>
+      </Routes>
+      <PageLayout.Footer>
+        <Footer />
+      </PageLayout.Footer>
+    </PageLayout>
+  );
+}
 
-      <Footer />
-    </Box>
+function Wrapper() {
+  return (
+    <>
+      <PageLayout.Header>
+        <Search />
+      </PageLayout.Header>
+      <Outlet />
+    </>
   );
 }
 

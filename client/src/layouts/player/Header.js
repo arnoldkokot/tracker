@@ -1,17 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useContext } from "react";
 import { Box, Avatar, Heading, Button, PageLayout, Label } from "@primer/react";
 
 import config from "../../config.json";
+import { PlayerContext } from "../../helpers";
 
-Header.propTypes = {
-  name: PropTypes.string,
-  profileIconId: PropTypes.number,
-  summonerLevel: PropTypes.number,
-  region: PropTypes.string,
-};
-
-export default function Header({ name, profileIconId, summonerLevel, region }) {
+export default function Header() {
+  const { profileIconId, summonerLevel, region, name } =
+    useContext(PlayerContext);
   return (
     <PageLayout.Header
       sx={{

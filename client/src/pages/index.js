@@ -1,5 +1,5 @@
 import Home from "./Home";
 import Player from "./Player";
-import Missing from "./Missing";
+import Error from "./Error";
 
-export { Home, Player, Missing };
+export { Home, Player, Error };
