@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import { Button } from "@primer/react";
+import { Box, Button, Spinner } from "@primer/react";
 
 import { Match } from "../";
 import { PlayerContext } from "../../helpers";
 
 export default function History() {
-  const { matches, extend } = useContext(PlayerContext);
+  const { matches, extend, extending } = useContext(PlayerContext);
 
   return (
     <>
@@ -13,9 +13,12 @@ export default function History() {
         <Match key={match._id} info={match.info} />
       ))}
 
-      <Button variant="invisible" sx={{ width: "100%" }} onClick={extend}>
-        Load more
-      </Button>
+      <Box display="flex" justifyContent="center" alignItems="center">
+        {extending && <Spinner size="small" />}
+        <Button variant="invisible" onClick={extend}>
+          Load more
+        </Button>
+      </Box>
     </>
   );
 }

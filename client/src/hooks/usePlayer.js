@@ -24,14 +24,17 @@ async function fetchPlayer(name, region) {
 export default function usePlayer(name, region) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
+  const [extending, setExtending] = useState(false);
 
   const extend = () => {
+    setExtending(true);
     fetchPage(data.puuid, data.currentPage + 1).then((newMatches) => {
       setData({
         ...data,
         matches: [...data.matches, ...newMatches],
         currentPage: data.currentPage + 1,
       });
+      setExtending(false);
     });
   };
 
@@ -52,5 +55,6 @@ export default function usePlayer(name, region) {
     player: data,
     error,
     extend,
+    extending,
   };
 }

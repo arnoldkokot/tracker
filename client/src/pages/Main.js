@@ -9,7 +9,7 @@ import { usePlayer } from "../hooks";
 
 export default function Main() {
   let { playerName, region } = useParams();
-  let { player, error, extend } = usePlayer(playerName, region);
+  let { player, error, extend, extending } = usePlayer(playerName, region);
 
   if (error !== null)
     return (
@@ -33,7 +33,7 @@ export default function Main() {
     );
 
   return (
-    <PlayerContext.Provider value={{ ...player, extend }}>
+    <PlayerContext.Provider value={{ ...player, extend, extending }}>
       <Player />
     </PlayerContext.Provider>
   );

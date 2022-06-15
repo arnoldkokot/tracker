@@ -8,9 +8,14 @@ export default function Navigation() {
 
   return (
     <Header>
-      <Header.Item full>
+      <Header.Item sx={{ paddingLeft: "2" }}>
         <Header.Link as={Link} to="/">
-          Home page
+          Home
+        </Header.Link>
+      </Header.Item>
+      <Header.Item full>
+        <Header.Link as={Link} to="about">
+          About
         </Header.Link>
       </Header.Item>
       <Header.Item>
