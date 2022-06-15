@@ -16,9 +16,9 @@ async function fetchPage(puuid, page) {
 async function fetchPlayer(name, region) {
   let player = await api(`/api/player/${name}?region=${region}`);
 
-  const matches = await fetchPage(player.puuid, 1);
+  const matches = await fetchPage(player.puuid, 0);
 
-  return { ...player, matches, currentPage: 1 };
+  return { ...player, matches, currentPage: 0 };
 }
 
 export default function usePlayer(name, region) {

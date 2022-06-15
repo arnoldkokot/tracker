@@ -1,7 +1,7 @@
 import React from "react";
 import { PageLayout } from "@primer/react";
 
-import { Header, Recent, Rank, History } from "../layouts";
+import { Header, Recent, Rank, History, Summary } from "../layouts";
 
 export default function Player() {
   return (
@@ -9,6 +9,7 @@ export default function Player() {
       <Header />
 
       <PageLayout.Content>
+        <Summary />
         <History />
       </PageLayout.Content>
 

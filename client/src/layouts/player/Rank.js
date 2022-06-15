@@ -17,14 +17,8 @@ export default function Rank({ title, queueType }) {
   return (
     <Container mb={2}>
       <Box display="flex" justifyContent="space-between">
-        <Text fontWeight="bold" fontSize={1}>
-          {title}
-        </Text>
-        {!entry && (
-          <Text fontWeight="bold" fontSize={1}>
-            Unranked
-          </Text>
-        )}
+        <Container.Bold>{title}</Container.Bold>
+        {!entry && <Container.Bold>Unranked</Container.Bold>}
       </Box>
       {entry && (
         <Box display="flex" alignItems="center">
@@ -37,7 +31,7 @@ export default function Rank({ title, queueType }) {
               {entry.rank}
             </Text>
             <Text as="p" fontSize={1} m={0}>
-              {entry.leaguePoints} LP
+              {entry.leaguePoints} League points
             </Text>
           </Box>
         </Box>

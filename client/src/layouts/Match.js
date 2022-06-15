@@ -42,9 +42,7 @@ export default function Match({ info }) {
       sx={{ gap: "4" }}
     >
       <Box flexShrink={0} display="flex" flexDirection="column" ml={1}>
-        <Text fontSize={1} fontWeight="bold">
-          {getQueue(info.queueId)}
-        </Text>
+        <Container.Bold>{getQueue(info.queueId)}</Container.Bold>
         <Text fontSize={1}>{formatCreation(info.gameCreation)}</Text>
         <Text fontSize={1}>{formatDuration(info.gameDuration)}</Text>
       </Box>

@@ -9,12 +9,8 @@ export default function Recent() {
   return (
     <Container mb={2}>
       <Box display="flex" justifyContent="space-between">
-        <Text fontWeight="bold" fontSize={1}>
-          Recently played with
-        </Text>
-        <Text fontWeight="bold" fontSize={1}>
-          {matches.length} games
-        </Text>
+        <Container.Bold>Recently played with</Container.Bold>
+        <Container.Bold>{matches.length} games</Container.Bold>
       </Box>
       {countRecent(matches)
         .filter((e) => e.name !== name)
