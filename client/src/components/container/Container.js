@@ -11,12 +11,8 @@ Bold.propTypes = {
   props: PropTypes.any,
 };
 
-function Bold({ children, props }) {
-  return (
-    <Text fontWeight="bold" fontSize={1} {...props}>
-      {children}
-    </Text>
-  );
+function Bold(props) {
+  return <Text fontWeight="bold" fontSize={1} {...props} />;
 }
 
 Container.Bold = Bold;

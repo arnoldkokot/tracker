@@ -6,8 +6,13 @@ import { GraphIcon } from "@primer/octicons-react";
 export default function Home() {
   return (
     <PageLayout.Content
-      width="medium"
-      sx={{ minHeight: "80vh", display: "flex", alignItems: "center" }}
+      sx={{
+        minHeight: "80vh",
+        display: "flex",
+        alignItems: "center",
+        maxWidth: "600px",
+        margin: "0 auto",
+      }}
     >
       <Box width={80} margin="0 auto">
         <GraphIcon size={80} />

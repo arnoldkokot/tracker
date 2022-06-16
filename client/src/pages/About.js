@@ -28,8 +28,19 @@ export default function About() {
                 sx={{ color: "fg.onEmphasis" }}
               />
             </Timeline.Badge>
+            <Timeline.Body>June 16, 2022, Version 2.0.0 released</Timeline.Body>
+          </Timeline.Item>
+
+          <Timeline.Item>
+            <Timeline.Badge sx={{ bg: "success.emphasis" }}>
+              <StyledOcticon
+                icon={IssueClosedIcon}
+                sx={{ color: "fg.onEmphasis" }}
+              />
+            </Timeline.Badge>
             <Timeline.Body>May 30, 2022, League tracker released</Timeline.Body>
           </Timeline.Item>
+          {/* Jul 15, 2021 prototype */}
         </Timeline>
       </PageLayout.Content>
       <PageLayout.Footer sx={{ fontFamily: "mono", paddingTop: "5" }}>

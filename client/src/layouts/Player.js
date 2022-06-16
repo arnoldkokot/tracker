@@ -9,11 +9,11 @@ export default function Player() {
       <Header />
 
       <PageLayout.Content>
-        <Summary />
         <History />
       </PageLayout.Content>
 
       <PageLayout.Pane position="start">
+        <Summary />
         <Rank title="Ranked Solo" queueType="RANKED_SOLO_5x5" />
         <Rank title="Ranked Flex" queueType="RANKED_FLEX" />
         <Recent />

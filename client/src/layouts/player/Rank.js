@@ -23,7 +23,7 @@ export default function Rank({ title, queueType }) {
       {entry && (
         <Box display="flex" alignItems="center">
           <Avatar src={`/img/${entry.tier}.webp`} size={72} />
-          <Box>
+          <Box ml={2}>
             <Text as="p" fontWeight="bold" fontSize={3} m={0}>
               {entry.tier.charAt(0).toUpperCase() +
                 entry.tier.slice(1).toLowerCase() +
