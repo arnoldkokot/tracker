@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Box, Avatar, Heading, Button, PageLayout, Label } from "@primer/react";
+import { Box, Avatar, Heading, PageLayout, Label } from "@primer/react";
 
 import config from "../../config.json";
 import { PlayerContext } from "../../helpers";
@@ -11,7 +11,6 @@ export default function Header() {
     <PageLayout.Header
       sx={{
         display: "flex",
-        gap: "24px",
         alignItems: "center",
       }}
     >
@@ -21,14 +20,9 @@ export default function Header() {
         square
         size={100}
       />
-      <Box
-        display="flex"
-        flexDirection="column"
-        justifyContent="space-around"
-        alignItems="flex-start"
-      >
-        <Box display="flex" alignItems="center" mb={2} sx={{ gap: "9px" }}>
-          <Heading>{name}</Heading>
+      <Box mr="auto" ml={4}>
+        <Heading>{name}</Heading>
+        <Box display="flex" sx={{ gap: "1", marginTop: "1" }}>
           <Label size="large" sx={{ display: ["none", "inline-flex"] }}>
             {summonerLevel} lvl
           </Label>
@@ -36,7 +30,6 @@ export default function Header() {
             {region}
           </Label>
         </Box>
-        <Button>Refresh</Button>
       </Box>
     </PageLayout.Header>
   );
